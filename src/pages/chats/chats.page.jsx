@@ -67,19 +67,19 @@ const ChatsPage = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setState({
-        ...state,
-        notification: {
-          show: true,
-          title: "Get notified of new messages",
-          description: "Turn on desktop notifications",
-          icon: "bell",
-          command: "",
-          badgeColor: "",
-        },
-      });
-    }, 1000);
+    // setTimeout(() => {
+    //   setState({
+    //     ...state,
+    //     notification: {
+    //       show: true,
+    //       title: "Get notified of new messages",
+    //       description: "Turn on desktop notifications",
+    //       icon: "bell",
+    //       command: "",
+    //       badgeColor: "",
+    //     },
+    //   });
+    // }, 1000);
 
     if (!user) {
       navigate("/auth");

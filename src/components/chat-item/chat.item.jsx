@@ -12,16 +12,18 @@ const ChatItem = ({ chat, onPick }) => {
       <div className="avatar">
         <Avatar url={chat.avatar} group={chat.group} />
       </div>
-      <div className="info">
-        <div className="title">{chat.title}</div>
-        <div className="date">{date}</div>
-      </div>
-      <div className="more">
-        <div className="last-message">
-          <div className="mode">{chat.lastMessage.mode}</div>
-          <div className="text">{chat.lastMessage.text}</div>
+      <div className="inner">
+        <div className="info">
+          <div className="title">{chat.title}</div>
+          <div className="date">{date}</div>
         </div>
-        <div className="unread">{chat.unread}</div>
+        <div className="more">
+          <div className="last-message">
+            <div className="mode">{chat.lastMessage.mode}</div>
+            <div className="text">{chat.lastMessage.text}</div>
+          </div>
+          <div className="unread">{chat.unread}</div>
+        </div>
       </div>
     </Wrapper>
   );

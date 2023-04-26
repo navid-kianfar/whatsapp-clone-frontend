@@ -10,12 +10,25 @@ const Wrapper = styled.div`
   cursor: pointer;
 
   .avatar {
-    margin-inline-end: 15px;
+    display: flex;
+    min-width: 77px;
+    max-width: 77px;
+    align-items: center;
+
+    svg {
+      width: 49px;
+      height: 49px;
+    }
+  }
+  .inner {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
   }
   .info {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
 
     .title {
       font-size: 16px;
@@ -26,7 +39,12 @@ const Wrapper = styled.div`
     }
   }
   .more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .last-message {
+      align-items: center;
+      display: flex;
       font-size: 14px;
       line-height: 19px;
       color: var(--butterbar-secondary);
