@@ -26,6 +26,7 @@ const initialState = {
   chats: Array(50)
     .fill(0)
     .map((e, i) => ({
+      group: i % 3 === 0,
       id: (i + 1).toString(),
       title: "chat with person " + (i + 1),
       date: new Date(2022, 1, 1),

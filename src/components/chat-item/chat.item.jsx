@@ -10,7 +10,7 @@ const ChatItem = ({ chat, onPick }) => {
   return (
     <Wrapper onClick={onPick} className="chat-item-wrapper">
       <div className="avatar">
-        <Avatar />
+        <Avatar url={chat.avatar} group={chat.group} />
       </div>
       <div className="info">
         <div className="title">{chat.title}</div>
