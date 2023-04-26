@@ -12,7 +12,8 @@ const initialState = {
   token,
   user,
   qrCode: "",
-  loading: true,
+  loading: false,
+  darkTheme: true,
   chats: [],
   chat: null,
 };
