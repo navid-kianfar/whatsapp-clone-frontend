@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "./chat.item.style";
 
-const ChatNotification = ({ chat, onPick }) => {
+const ChatItem = ({ chat, onPick }) => {
   return (
     <Wrapper onClick={onPick} className="chat-item-wrapper">
       <div className="avatar">
@@ -22,4 +22,4 @@ const ChatNotification = ({ chat, onPick }) => {
   );
 };
 
-export default ChatNotification;
+export default ChatItem;

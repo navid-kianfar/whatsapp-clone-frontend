@@ -10,6 +10,7 @@ import MoreIcon from "../../components/icons/more.icon";
 import PyramidIcon from "../../components/icons/pyramid.icon";
 import SearchChats from "../../components/search-chats/search.chats";
 import ChatNotification from "../../components/chat-notification/chat.notification";
+import ChatItem from "../../components/chat-item/chat.item";
 import Wrapper from "./chats.style";
 import Me from "../../assets/images/me.jpeg";
 
@@ -24,11 +25,23 @@ const initialState = {
   },
 };
 
+const chats = Array(50)
+  .fill(0)
+  .map((e, i) => ({
+    title: "",
+    date: new Date(),
+    unread: 0,
+    lastMessage: {},
+  }));
+
 const ChatsPage = () => {
   const navigate = useNavigate();
   const { loading, user, chat, darkTheme } = useAppContext();
   const [state, setState] = useState(initialState);
 
+  const pickChat = (chat) => {
+    console.log("pickChat", chat);
+  };
   const reactNotification = () => {
     console.log("reactNotification");
   };
@@ -115,6 +128,9 @@ const ChatsPage = () => {
                 notification={state.notification}
               />
             )}
+            {chats.map((chat) => (
+              <ChatItem chat={chat} onPick={pickChat} />
+            ))}
           </div>
         </div>
       </div>
