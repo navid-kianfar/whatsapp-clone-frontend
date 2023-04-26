@@ -4,14 +4,14 @@ import LogoGray from "../logos/logo.gray";
 const Loading = () => {
   return (
     <Wrapper>
-      <div id="initial_startup">
+      <div className="initial_startup">
         <div className="graphic">
           <span>
             <LogoGray />
           </span>
         </div>
         <div className="progress">
-          <progress value="0" max="100" dir="ltr"></progress>
+          <progress value="50" max="100" dir="ltr"></progress>
         </div>
         <div className="main">WhatsApp</div>
         <div className="secondary">

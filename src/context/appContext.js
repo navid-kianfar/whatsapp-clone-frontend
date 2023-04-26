@@ -5,14 +5,14 @@ const token = localStorage.getItem("token") || "";
 let user = token ? JSON.parse(localStorage.getItem("user")) : null;
 
 if (!user) {
-  // user = {};
+  user = {};
 }
 
 const initialState = {
   token,
   user,
   qrCode: "",
-  loading: false,
+  loading: true,
   chats: [],
   chat: null,
 };
