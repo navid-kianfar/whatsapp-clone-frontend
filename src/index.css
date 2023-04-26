@@ -12,16 +12,16 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 6px !important;
-    height: 6px !important;
+    width: 8px !important;
+    height: 8px !important;
 }
-::-webkit-scrollbar-thumb,
-html[dir] .light ::-webkit-scrollbar-thumb {
-    background-color: rgba(var(--black-rgb), .2);
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--gray-500)
 }
-::-webkit-scrollbar-track,
-html[dir] .light ::-webkit-scrollbar-track {
-    background: rgba(var(--white-rgb), .1);
+
+::-webkit-scrollbar-track {
+    background-color: rgba(var(--white-rgb), .10)
 }
 
 :root {
