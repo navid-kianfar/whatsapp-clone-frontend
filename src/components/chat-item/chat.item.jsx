@@ -1,5 +1,6 @@
 import React from "react";
 import Wrapper from "./chat.item.style";
+import Avatar from "../avatar/avatar";
 
 const ChatItem = ({ chat, onPick }) => {
   return (
