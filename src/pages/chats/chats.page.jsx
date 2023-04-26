@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Loading from "../../components/loading/loading";
 import { useAppContext } from "../../context/appContext";
+import Loading from "../../components/loading/loading";
 import DashboardArt from "../../components/icons/dashboard.icon";
 import GroupsIcon from "../../components/icons/groups.icon";
 import StatusIcon from "../../components/icons/status.icon";
@@ -51,7 +51,7 @@ const ChatsPage = () => {
         <div className="inner-container">
           <div className="search-container">
             <SearchChats />
-            <button>
+            <button className="filter-btn">
               <PyramidIcon />
             </button>
           </div>

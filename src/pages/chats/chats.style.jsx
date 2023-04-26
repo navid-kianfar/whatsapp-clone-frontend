@@ -58,6 +58,45 @@ const Wrapper = styled.div`
         }
       }
     }
+
+    .inner-container {
+      padding-inline-start: 0;
+      padding: 0 12px;
+      background-color: var(--search-input-container-background);
+      position: relative;
+      z-index: 100;
+      box-sizing: border-box;
+      display: flex;
+      flex: none;
+      align-items: center;
+      height: 49px;
+      transition: box-shadow 0.18s ease-out, background-color 0.25s ease-out;
+      .search-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        box-sizing: border-box;
+        flex: 1;
+        overflow: hidden;
+
+        .filter-btn {
+          background: none;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 3px;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          svg {
+            color: var(--panel-header-icon);
+          }
+        }
+      }
+    }
   }
   .content {
     display: flex;
