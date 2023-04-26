@@ -100,6 +100,8 @@ const Wrapper = styled.div`
 
     .chats-container {
       position: relative;
+      max-height: calc(100vh - var(--h-pane-header) - 49px);
+      overflow-y: auto;
       &.has-notification {
         padding-top: 90px;
       }

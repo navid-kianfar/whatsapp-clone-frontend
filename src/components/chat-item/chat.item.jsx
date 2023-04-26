@@ -1,8 +1,10 @@
 import React from "react";
+import moment from "moment";
 import Wrapper from "./chat.item.style";
 import Avatar from "../avatar/avatar";
 
 const ChatItem = ({ chat, onPick }) => {
+  const date = moment(chat.date).format("");
   return (
     <Wrapper onClick={onPick} className="chat-item-wrapper">
       <div className="avatar">
@@ -10,7 +12,7 @@ const ChatItem = ({ chat, onPick }) => {
       </div>
       <div className="info">
         <div className="title">{chat.title}</div>
-        <div className="date">{chat.date.toString()}</div>
+        <div className="date">{date}</div>
       </div>
       <div className="more">
         <div className="last-message">

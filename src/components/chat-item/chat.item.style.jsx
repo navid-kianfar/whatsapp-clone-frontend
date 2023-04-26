@@ -1,8 +1,6 @@
 import styled from "styled-components";
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   display: flex;
   align-items: center;
   min-height: 62px;
