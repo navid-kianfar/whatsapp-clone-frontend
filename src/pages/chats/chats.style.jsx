@@ -33,15 +33,27 @@ const Wrapper = styled.div`
       .actions {
         display: flex;
         align-items: center;
-        width: 200px;
+        width: 190px;
+        height: 40px;
         justify-content: space-between;
         align-items: center;
         button {
           background: none;
           border: none;
           outline: none;
+          cursor: pointer;
+          padding: 3px;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           svg {
             color: var(--panel-header-icon);
+          }
+          &:focus {
+            background-color: var(--menu-bar-item-background-active);
           }
         }
       }
