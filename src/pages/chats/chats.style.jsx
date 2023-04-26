@@ -60,24 +60,24 @@ const Wrapper = styled.div`
     }
 
     .inner-container {
-      padding-inline-start: 0;
-      padding: 0 12px;
-      background-color: var(--search-input-container-background);
-      position: relative;
-      z-index: 100;
-      box-sizing: border-box;
       display: flex;
-      flex: none;
-      align-items: center;
-      height: 49px;
-      transition: box-shadow 0.18s ease-out, background-color 0.25s ease-out;
+      flex-direction: column;
+
       .search-container {
+        padding-inline-start: 0;
+        padding: 10px 12px;
+        background-color: var(--search-input-container-background);
+        position: relative;
+        box-sizing: border-box;
+
         display: flex;
         align-items: center;
         position: relative;
         box-sizing: border-box;
         flex: 1;
         overflow: hidden;
+        height: 49px;
+        transition: box-shadow 0.18s ease-out, background-color 0.25s ease-out;
 
         .filter-btn {
           background: none;
@@ -95,6 +95,13 @@ const Wrapper = styled.div`
             color: var(--panel-header-icon);
           }
         }
+      }
+    }
+
+    .chats-container {
+      position: relative;
+      &.has-notification {
+        padding-top: 90px;
       }
     }
   }

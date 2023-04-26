@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/appContext";
 import Loading from "../../components/loading/loading";
@@ -9,12 +9,25 @@ import ChatIcon from "../../components/icons/chat.icon";
 import MoreIcon from "../../components/icons/more.icon";
 import PyramidIcon from "../../components/icons/pyramid.icon";
 import SearchChats from "../../components/search-chats/search.chats";
+import ChatNotification from "../../components/chat-notification/chat.notification";
 import Wrapper from "./chats.style";
 import Me from "../../assets/images/me.jpeg";
+
+const initialState = {
+  notification: {
+    show: true,
+    title: "Get notified of new messages",
+    description: "Turn on desktop notifications",
+    icon: "bell",
+    command: "",
+    badgeColor: "",
+  },
+};
 
 const ChatsPage = () => {
   const navigate = useNavigate();
   const { loading, user, chat, darkTheme } = useAppContext();
+  const [state, setState] = useState(initialState);
 
   useEffect(() => {
     if (!user) {
@@ -54,6 +67,16 @@ const ChatsPage = () => {
             <button className="filter-btn">
               <PyramidIcon />
             </button>
+          </div>
+
+          <div
+            className={`chats-container ${
+              state.notification.show ? "has-notification" : ""
+            }`}
+          >
+            {state.notification.show && (
+              <ChatNotification notification={state.notification} />
+            )}
           </div>
         </div>
       </div>
