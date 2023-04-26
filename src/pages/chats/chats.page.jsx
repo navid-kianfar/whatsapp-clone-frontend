@@ -23,16 +23,16 @@ const initialState = {
     command: "",
     badgeColor: "",
   },
+  chats: Array(50)
+    .fill(0)
+    .map((e, i) => ({
+      id: (i + 1).toString(),
+      title: "chat with person " + (i + 1),
+      date: new Date(),
+      unread: 0,
+      lastMessage: {},
+    })),
 };
-
-const chats = Array(50)
-  .fill(0)
-  .map((e, i) => ({
-    title: "",
-    date: new Date(),
-    unread: 0,
-    lastMessage: {},
-  }));
 
 const ChatsPage = () => {
   const navigate = useNavigate();
@@ -128,8 +128,8 @@ const ChatsPage = () => {
                 notification={state.notification}
               />
             )}
-            {chats.map((chat) => (
-              <ChatItem chat={chat} onPick={pickChat} />
+            {state.chats.map((chat) => (
+              <ChatItem key={chat.id} chat={chat} onPick={pickChat} />
             ))}
           </div>
         </div>

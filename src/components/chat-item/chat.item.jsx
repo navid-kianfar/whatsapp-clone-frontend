@@ -10,7 +10,7 @@ const ChatItem = ({ chat, onPick }) => {
       </div>
       <div className="info">
         <div className="title">{chat.title}</div>
-        <div className="date">{chat.date}</div>
+        <div className="date">{chat.date.toString()}</div>
       </div>
       <div className="more">
         <div className="last-message">
