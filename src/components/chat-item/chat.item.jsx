@@ -4,7 +4,9 @@ import Wrapper from "./chat.item.style";
 import Avatar from "../avatar/avatar";
 
 const ChatItem = ({ chat, onPick }) => {
-  const date = moment(chat.date).format("");
+  const withinWeek = moment().diff(chat.date, "days") < 7;
+  const format = withinWeek ? "dddd" : "DD/MM/YYYY";
+  const date = moment(chat.date).format(format);
   return (
     <Wrapper onClick={onPick} className="chat-item-wrapper">
       <div className="avatar">

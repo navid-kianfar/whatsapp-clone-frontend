@@ -28,9 +28,12 @@ const initialState = {
     .map((e, i) => ({
       id: (i + 1).toString(),
       title: "chat with person " + (i + 1),
-      date: new Date(),
+      date: new Date(2022, 1, 1),
       unread: 0,
-      lastMessage: {},
+      lastMessage: {
+        mode: "text",
+        text: "last message text",
+      },
     })),
 };
 
