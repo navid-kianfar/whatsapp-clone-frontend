@@ -8,6 +8,9 @@ const initialState = {
   token,
   user,
   qrCode: "",
+  loading: true,
+  chats: [],
+  chat: null,
 };
 
 const AppContext = React.createContext(initialState);
