@@ -7,6 +7,8 @@ import GroupsIcon from "../../components/icons/groups.icon";
 import StatusIcon from "../../components/icons/status.icon";
 import ChatIcon from "../../components/icons/chat.icon";
 import MoreIcon from "../../components/icons/more.icon";
+import PyramidIcon from "../../components/icons/pyramid.icon";
+import SearchChats from "../../components/search-chats/search.chats";
 import Wrapper from "./chats.style";
 import Me from "../../assets/images/me.jpeg";
 
@@ -45,6 +47,15 @@ const ChatsPage = () => {
             </button>
           </div>
         </header>
+
+        <div className="inner-container">
+          <div className="search-container">
+            <SearchChats />
+            <button>
+              <PyramidIcon />
+            </button>
+          </div>
+        </div>
       </div>
       <div className="content">
         {!chat && (
