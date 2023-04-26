@@ -2,18 +2,18 @@ import React from "react";
 import CrossIcon from "../icons/cross.icon";
 import Wrapper from "./chat.notification.style";
 
-const ChatNotification = ({ notification }) => {
+const ChatNotification = ({ notification, onClose, onReact }) => {
   return (
     <Wrapper className="chat-notification-wrapper">
       <div className="icon">
         <div className="circle"></div>
       </div>
-      <div className="info">
+      <div className="info" onClick={onReact}>
         <div className="title">{notification.title}</div>
         <div className="description">{notification.description}</div>
       </div>
       <div className="close">
-        <CrossIcon />
+        <CrossIcon onClick={onClose} />
       </div>
     </Wrapper>
   );

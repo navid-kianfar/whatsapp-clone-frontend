@@ -15,10 +15,10 @@ import Me from "../../assets/images/me.jpeg";
 
 const initialState = {
   notification: {
-    show: true,
-    title: "Get notified of new messages",
-    description: "Turn on desktop notifications",
-    icon: "bell",
+    show: false,
+    title: "",
+    description: "",
+    icon: "",
     command: "",
     badgeColor: "",
   },
@@ -29,7 +29,41 @@ const ChatsPage = () => {
   const { loading, user, chat, darkTheme } = useAppContext();
   const [state, setState] = useState(initialState);
 
+  const reactNotification = () => {
+    console.log("reactNotification");
+  };
+  const closeNotification = () => {
+    console.log("closeNotification");
+    // setTimeout(() => {
+    //   setState({
+    //     ...state,
+    //     notification: {
+    //       show: false,
+    //       title: "",
+    //       description: "",
+    //       icon: "",
+    //       command: "",
+    //       badgeColor: "",
+    //     },
+    //   });
+    // }, 1000);
+  };
+
   useEffect(() => {
+    setTimeout(() => {
+      setState({
+        ...state,
+        notification: {
+          show: true,
+          title: "Get notified of new messages",
+          description: "Turn on desktop notifications",
+          icon: "bell",
+          command: "",
+          badgeColor: "",
+        },
+      });
+    }, 1000);
+
     if (!user) {
       navigate("/auth");
     }
@@ -75,7 +109,11 @@ const ChatsPage = () => {
             }`}
           >
             {state.notification.show && (
-              <ChatNotification notification={state.notification} />
+              <ChatNotification
+                onReact={reactNotification}
+                onClose={closeNotification}
+                notification={state.notification}
+              />
             )}
           </div>
         </div>
