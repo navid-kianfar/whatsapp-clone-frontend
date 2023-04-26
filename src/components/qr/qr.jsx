@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import qrImage from "../../assets/images/qr.png";
-import AnimatedLoader from "../animated-loader/animated.loader.component";
-import RefreshIcon from "../icons/refresh.icon.component";
+import AnimatedLoader from "../animated-loader/animated.loader";
+import RefreshIcon from "../icons/refresh.icon";
+import Wrapper from "./qr.style";
 
 const initialState = {
   waiting: true,
@@ -27,14 +28,18 @@ const QR = () => {
 
   if (state.waiting) {
     return (
-      <div className="qr-container">
+      <Wrapper>
         <AnimatedLoader />
-      </div>
+      </Wrapper>
     );
   }
   return (
-    <div className={`qr-container ${state.expired ? "expired" : ""}`}>
-      <img src={state.qrCode || qrImage} alt="" />
+    <Wrapper>
+      <img
+        className={state.expired ? "expired" : ""}
+        src={state.qrCode || qrImage}
+        alt=""
+      />
       {state.expired && (
         <div className="reload-wrapper">
           <button onClick={refreshQRCode}>
@@ -43,7 +48,7 @@ const QR = () => {
           </button>
         </div>
       )}
-    </div>
+    </Wrapper>
   );
 };
 

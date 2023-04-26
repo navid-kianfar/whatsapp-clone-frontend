@@ -4,11 +4,15 @@ import reducer from "./reducer";
 const token = localStorage.getItem("token") || "";
 let user = token ? JSON.parse(localStorage.getItem("user")) : null;
 
+if (!user) {
+  // user = {};
+}
+
 const initialState = {
   token,
   user,
   qrCode: "",
-  loading: true,
+  loading: false,
   chats: [],
   chat: null,
 };

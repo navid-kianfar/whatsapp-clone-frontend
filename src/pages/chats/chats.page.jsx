@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Loading from "../../components/loading/loading.component";
+import Loading from "../../components/loading/loading";
 import { useAppContext } from "../../context/appContext";
 
 const ChatsPage = () => {

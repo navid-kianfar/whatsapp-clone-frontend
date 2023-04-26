@@ -1,5 +1,5 @@
 import Wrapper from "./loading.style";
-import LogoGray from "../logos/logo.gray.component";
+import LogoGray from "../logos/logo.gray";
 
 const Loading = () => {
   return (

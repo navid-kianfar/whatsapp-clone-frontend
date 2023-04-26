@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/appContext";
 import Wrapper from "./auth.style";
-import MenuIcon from "../../components/icons/menu.icon.component";
-import CogsIcon from "../../components/icons/cogs.icon.component";
-import LogoColored from "../../components/logos/logo.colored.component";
-import QR from "../../components/qr/qr.component";
+import MenuIcon from "../../components/icons/menu.icon";
+import CogsIcon from "../../components/icons/cogs.icon";
+import LogoColored from "../../components/logos/logo.colored";
+import QR from "../../components/qr/qr";
 import tutorialImage from "../../assets/images/tutorial.png";
 
 const AuthPage = () => {
