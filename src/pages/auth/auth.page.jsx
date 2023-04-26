@@ -5,7 +5,8 @@ import Wrapper from "./auth.style";
 import MenuIcon from "../../components/icons/menu.icon.component";
 import CogsIcon from "../../components/icons/cogs.icon.component";
 import LogoColored from "../../components/logos/logo.colored.component";
-import qrImage from "../../assets/images/qr.png";
+import QR from "../../components/qr/qr.component";
+import tutorialImage from "../../assets/images/tutorial.png";
 
 const AuthPage = () => {
   const navigate = useNavigate();
@@ -20,14 +21,14 @@ const AuthPage = () => {
   return (
     <Wrapper className="landing-wrapper">
       <div className="landing-wrapper-before"></div>
-      <div class="landing-header">
+      <div className="landing-header">
         <span>
           <LogoColored />
         </span>
-        <div class="landing-header-title">WhatsApp Web</div>
+        <div className="landing-header-title">WhatsApp Web</div>
       </div>
       <div className="landing-window">
-        <div class="landing-main">
+        <div className="landing-main">
           <div className="section-signin">
             <div className="signin-wrapper">
               <div className="info-wrapper">
@@ -75,11 +76,17 @@ const AuthPage = () => {
                 </ol>
               </div>
               <div className="qr-wrapper">
-                <img src={qrImage} alt="" />
+                <QR />
               </div>
             </div>
           </div>
-          <div className="section-tutorial"></div>
+        </div>
+        <div className="section-tutorial">
+          <div className="landing-title">Tutorial</div>
+          <a href="https://faq.whatsapp.com/web/download-and-installation/how-to-log-in-or-out?lang=en">
+            Need help to get started?
+          </a>
+          <img src={tutorialImage} alt="tutorialImage" />
         </div>
       </div>
     </Wrapper>

@@ -20,6 +20,8 @@ const Wrapper = styled.div`
     margin: 27px auto 28px;
     max-width: 1000px;
     width: 100vw;
+    display: flex;
+    align-items: center;
   }
   .landing-header span {
     display: inline-block;
@@ -83,6 +85,29 @@ const Wrapper = styled.div`
   ol li svg {
     position: relative;
     top: 5px;
+  }
+  .section-tutorial {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 60px;
+    background-color: rgba(var(--black-rgb), 0.025);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section-tutorial .landing-title {
+  }
+  .section-tutorial a {
+    color: var(--teal);
+    margin-bottom: 40px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .section-tutorial a:hover {
+    text-decoration: underline;
+  }
+  .section-tutorial img {
+    max-width: 500px;
   }
 `;
 

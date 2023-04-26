@@ -8,7 +8,20 @@ body {
     text-rendering: optimizeLegibility;
     font-feature-settings: "kern";
     background-color: var(--app-background);
-    background-image: linear-gradient(180deg, var(--app-background), var(--app-background-deeper))
+    /* background-image: linear-gradient(180deg, var(--app-background), var(--app-background-deeper)) */
+}
+
+::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+::-webkit-scrollbar-thumb,
+html[dir] .light ::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--black-rgb), .2);
+}
+::-webkit-scrollbar-track,
+html[dir] .light ::-webkit-scrollbar-track {
+    background: rgba(var(--white-rgb), .1);
 }
 
 :root {
@@ -1426,7 +1439,7 @@ html {
     height: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden
+    /* overflow: hidden */
 }
 
 #initial_startup {
