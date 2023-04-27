@@ -80,19 +80,25 @@ const Wrapper = styled.div`
         transition: box-shadow 0.18s ease-out, background-color 0.25s ease-out;
 
         .filter-btn {
+          margin-inline-start: 5px;
           background: none;
           border: none;
           outline: none;
           cursor: pointer;
           padding: 3px;
           border-radius: 50%;
-          width: 40px;
-          height: 40px;
+          width: 25px;
+          height: 25px;
           display: flex;
           align-items: center;
           justify-content: center;
           svg {
             color: var(--panel-header-icon);
+          }
+
+          &.active {
+            color: #fff;
+            background-color: var(--icon-high-emphasis);
           }
         }
       }

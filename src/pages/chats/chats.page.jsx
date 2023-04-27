@@ -15,6 +15,7 @@ import Wrapper from "./chats.style";
 import Me from "../../assets/images/me.jpeg";
 
 const initialState = {
+  unreadOnly: false,
   notification: {
     show: false,
     title: "",
@@ -23,6 +24,7 @@ const initialState = {
     command: "",
     badgeColor: "",
   },
+  filtered: [],
   chats: Array(50)
     .fill(0)
     .map((e, i) => ({
@@ -46,6 +48,14 @@ const ChatsPage = () => {
   const { loading, user, chat, darkTheme } = useAppContext();
   const [state, setState] = useState(initialState);
 
+  const toggleFilterUnRead = () => {
+    const unread = !state.unreadOnly;
+    const filtered = unread
+      ? state.chats.filter((chat) => chat.unread > 0)
+      : [];
+    setState({ ...state, unreadOnly: unread, filtered });
+  };
+
   const pickChat = (chat) => {
     console.log("pickChat", chat);
   };
@@ -53,20 +63,19 @@ const ChatsPage = () => {
     console.log("reactNotification");
   };
   const closeNotification = () => {
-    console.log("closeNotification");
-    // setTimeout(() => {
-    //   setState({
-    //     ...state,
-    //     notification: {
-    //       show: false,
-    //       title: "",
-    //       description: "",
-    //       icon: "",
-    //       command: "",
-    //       badgeColor: "",
-    //     },
-    //   });
-    // }, 1000);
+    setTimeout(() => {
+      setState({
+        ...state,
+        notification: {
+          show: false,
+          title: "",
+          description: "",
+          icon: "",
+          command: "",
+          badgeColor: "",
+        },
+      });
+    }, 1000);
   };
 
   useEffect(() => {
@@ -118,7 +127,10 @@ const ChatsPage = () => {
         <div className="inner-container">
           <div className="search-container">
             <SearchChats />
-            <button className="filter-btn">
+            <button
+              onClick={toggleFilterUnRead}
+              className={`filter-btn ${state.unreadOnly ? "active" : ""}`}
+            >
               <PyramidIcon />
             </button>
           </div>
@@ -135,7 +147,7 @@ const ChatsPage = () => {
                 notification={state.notification}
               />
             )}
-            {state.chats.map((chat) => (
+            {(state.unreadOnly ? state.filtered : state.chats).map((chat) => (
               <ChatItem
                 key={chat.id}
                 chat={chat}

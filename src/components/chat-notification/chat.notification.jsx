@@ -13,7 +13,9 @@ const ChatNotification = ({ notification, onClose, onReact }) => {
         <div className="description">{notification.description}</div>
       </div>
       <div className="close">
-        <CrossIcon onClick={onClose} />
+        <span onClick={onClose}>
+          <CrossIcon />
+        </span>
       </div>
     </Wrapper>
   );
