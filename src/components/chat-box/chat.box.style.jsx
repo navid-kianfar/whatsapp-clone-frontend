@@ -94,6 +94,17 @@ const Wrapper = styled.div`
       left: 0px;
       opacity: 0.06;
     }
+
+    &.loadng {
+    }
+
+    .loader-wrapper {
+      position: absolute;
+      top: calc(50% - 32px);
+      left: calc(50% - 32px);
+      svg {
+      }
+    }
   }
   footer {
     display: flex;

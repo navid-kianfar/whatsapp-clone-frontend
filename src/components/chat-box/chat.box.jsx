@@ -10,6 +10,7 @@ import GifIcon from "../icons/gif.icon";
 import SearchIcon from "../icons/search.icon";
 import MoreIcon from "../icons/more.icon";
 import Avatar from "../avatar/avatar";
+import AnimatedLoader from "../animated-loader/animated.loader";
 import moment from "moment";
 
 const PlateType = {
@@ -20,6 +21,7 @@ const PlateType = {
 };
 
 const initialState = {
+  loading: true,
   plate: PlateType.none,
 };
 
@@ -56,7 +58,13 @@ const ChatBox = ({ chat }) => {
           </button>
         </div>
       </header>
-      <main></main>
+      <main className={state.loading ? "loading" : ""}>
+        {state.loading && (
+          <div className="loader-wrapper">
+            <AnimatedLoader />
+          </div>
+        )}
+      </main>
       <footer className={state.plate ? "has-plate" : ""}>
         <div className="footer-plate"></div>
         <div className="footer-inner">
