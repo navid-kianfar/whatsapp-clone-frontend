@@ -28,7 +28,8 @@ const initialState = {
   plate: PlateType.none,
 };
 
-const ChatBox = ({ chat, dispatch }) => {
+const ChatBox = () => {
+  const { chat, dispatch } = useAppContext();
   const [state, setState] = useState(initialState);
   const date = moment(chat.date).format("DD/MM/YYYY");
 
