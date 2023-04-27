@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Wrapper from "./search.chats.style";
+import Wrapper from "./filter.style";
 import BackIcon from "../icons/back.icon";
 import SearchIcon from "../icons/search.icon";
 import CrossIcon from "../icons/cross.icon";
 
-const SearchChats = () => {
+const Filter = ({ placeholder }) => {
   const [focused, setFocused] = useState(false);
 
   const removeFocus = () => {
@@ -27,11 +27,7 @@ const SearchChats = () => {
         {focused ? <BackIcon /> : <SearchIcon />}
       </div>
       <div className="input-wrapper">
-        <input
-          type="text"
-          onClick={captureFocus}
-          placeholder="Search or start a new chat"
-        />
+        <input type="text" onClick={captureFocus} placeholder={placeholder} />
       </div>
       <div onClick={removeText} className="clear-wrapper">
         <CrossIcon />
@@ -40,4 +36,4 @@ const SearchChats = () => {
   );
 };
 
-export default SearchChats;
+export default Filter;

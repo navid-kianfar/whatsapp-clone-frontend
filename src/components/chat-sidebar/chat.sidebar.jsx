@@ -5,7 +5,7 @@ import StatusIcon from "../../components/icons/status.icon";
 import ChatIcon from "../../components/icons/chat.icon";
 import MoreIcon from "../../components/icons/more.icon";
 import PyramidIcon from "../../components/icons/pyramid.icon";
-import SearchChats from "../../components/search-chats/search.chats";
+import Filter from "../../components/filter/filter";
 import ChatNotification from "../../components/chat-notification/chat.notification";
 import ChatItem from "../../components/chat-item/chat.item";
 import HeaderMenu from "../../components/menus/header.menu";
@@ -110,7 +110,7 @@ const ChatSidebar = () => {
       </header>
       <div className="inner-container">
         <div className="search-container">
-          <SearchChats />
+          <Filter placeholder="Search or start a new chat" />
           <button
             onClick={toggleFilterUnRead}
             className={`filter-btn ${state.unreadOnly ? "active" : ""}`}
