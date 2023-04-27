@@ -57,7 +57,8 @@ const ChatBox = ({ chat }) => {
         </div>
       </header>
       <main></main>
-      <footer>
+      <footer className={state.plate ? "has-plate" : ""}>
+        <div className="footer-plate"></div>
         <div className="footer-inner">
           <div className="actions">
             {state.plate > 0 && (
