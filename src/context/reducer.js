@@ -29,6 +29,12 @@ const reducer = (state, action) => {
         ...state,
         chat: action.payload,
       };
+
+    case CLOSE_CHAT_COMMAND:
+      return {
+        ...state,
+        chat: null,
+      };
     default:
       console.log("here");
       return state;

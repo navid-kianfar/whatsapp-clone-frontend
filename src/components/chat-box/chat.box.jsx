@@ -28,8 +28,7 @@ const initialState = {
   plate: PlateType.none,
 };
 
-const ChatBox = ({ chat }) => {
-  // const { loading, dispatch } = useAppContext();
+const ChatBox = ({ chat, dispatch }) => {
   const [state, setState] = useState(initialState);
   const date = moment(chat.date).format("DD/MM/YYYY");
 
@@ -47,7 +46,7 @@ const ChatBox = ({ chat }) => {
   const releaseMoreMenuAnchor = (command) => {
     if (command) {
       command.payload = command.payload || {};
-      // dispatch(command);
+      dispatch(command);
     }
     setState({ ...state, moreMenuAnchor: null });
   };

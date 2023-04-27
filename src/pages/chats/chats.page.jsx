@@ -199,7 +199,7 @@ const ChatsPage = () => {
             </div>
           </div>
         )}
-        {chat && <Chatbox chat={chat} />}
+        {chat && <Chatbox dispatch={dispatch} chat={chat} />}
       </div>
     </Wrapper>
   );
