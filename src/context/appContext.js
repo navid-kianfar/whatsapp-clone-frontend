@@ -1,6 +1,10 @@
 import React, { useReducer, useContext } from "react";
 import reducer from "./reducer";
-import { OPEN_CHAT_START } from "./actions";
+import {
+  OPEN_CHAT_START,
+  CHAT_SEARCH_HIDE_COMMAND,
+  CHAT_SEARCH_COMMAND,
+} from "./actions";
 
 const token = localStorage.getItem("token") || "";
 let user = token ? JSON.parse(localStorage.getItem("user")) : null;
@@ -17,6 +21,8 @@ const initialState = {
   darkTheme: true,
   chats: [],
   chat: null,
+  searchPlate: false,
+  infoPlate: false,
 };
 
 const AppContext = React.createContext(initialState);
@@ -31,12 +37,26 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const showChatSearch = () => {
+    dispatch({
+      type: CHAT_SEARCH_COMMAND,
+    });
+  };
+
+  const hideChatSearch = () => {
+    dispatch({
+      type: CHAT_SEARCH_HIDE_COMMAND,
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
         ...state,
         dispatch,
         openChat,
+        showChatSearch,
+        hideChatSearch,
       }}
     >
       {children}

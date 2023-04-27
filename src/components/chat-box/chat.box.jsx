@@ -29,7 +29,7 @@ const initialState = {
 };
 
 const ChatBox = () => {
-  const { chat, dispatch } = useAppContext();
+  const { chat, dispatch, showChatSearch } = useAppContext();
   const [state, setState] = useState(initialState);
   const date = moment(chat.date).format("DD/MM/YYYY");
 
@@ -71,7 +71,11 @@ const ChatBox = () => {
           </div>
         </div>
         <div className="actions">
-          <button disabled={state.loading} className="action action-holder">
+          <button
+            onClick={showChatSearch}
+            disabled={state.loading}
+            className="action action-holder"
+          >
             <SearchIcon />
           </button>
           <button
