@@ -45,7 +45,7 @@ const initialState = {
 
 const ChatsPage = () => {
   const navigate = useNavigate();
-  const { loading, user, chat, darkTheme } = useAppContext();
+  const { loading, user, chat, darkTheme, openChat } = useAppContext();
   const [state, setState] = useState(initialState);
 
   const toggleFilterUnRead = () => {
@@ -57,7 +57,8 @@ const ChatsPage = () => {
   };
 
   const pickChat = (chat) => {
-    console.log("pickChat", chat);
+    // todo: clean if nessasary
+    openChat(chat);
   };
   const reactNotification = () => {
     console.log("reactNotification");

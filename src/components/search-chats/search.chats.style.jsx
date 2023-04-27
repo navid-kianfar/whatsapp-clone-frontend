@@ -8,22 +8,49 @@ const Wrapper = styled.div`
 
   background-color: var(--search-input-background);
   border-radius: 8px;
-  padding-right: 32px;
-  padding-left: 65px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   height: 35px;
 
   .icon-wrapper {
+    display: flex;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
   }
-  input {
-    display: block;
-    width: 100%;
-    background: none;
-    outline: none;
-    border: none;
-    color: white;
+  .input-wrapper {
+    display: flex;
+    flex-grow: 1;
+    input {
+      display: block;
+      width: 100%;
+      background: none;
+      outline: none;
+      border: none;
+      color: white;
+    }
+  }
+  .clear-wrapper {
+    display: flex;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &.focused {
+    .icon-wrapper {
+      color: var(--icon-search-back);
+    }
+  }
+
+  svg {
+    cursor: pointer;
   }
 `;
 
