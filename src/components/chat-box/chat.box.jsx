@@ -22,7 +22,7 @@ const ChatBox = ({ chat }) => {
           </div>
           <div className="send-wrapper">
             <div className="input-wrapper">
-              <input type="text" placeholder="Type a message" />
+              <textarea rows="1" placeholder="Type a message"></textarea>
             </div>
             <div className="send-action">
               <MicIcon />

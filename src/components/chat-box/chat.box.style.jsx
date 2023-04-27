@@ -62,6 +62,43 @@ const Wrapper = styled.div`
       align-items: flex-end;
       max-width: 100%;
       min-height: 62px;
+      align-items: center;
+      flex-grow: 1;
+
+      .actions {
+        display: flex;
+        align-items: center;
+        .action {
+          margin-inline-end: 10px;
+          svg {
+          }
+        }
+      }
+      .send-wrapper {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        .input-wrapper {
+          display: flex;
+          flex-grow: 1;
+          textarea {
+            padding: 11px 12px;
+            margin: 5px 8px;
+            background-color: var(--compose-input-background);
+            border: 1px solid var(--compose-input-border);
+            border-radius: 8px;
+            resize: none;
+            outline: none;
+            width: 100%;
+            color: #fff;
+          }
+          margin-inline-end: 10px;
+        }
+        .send-action {
+          svg {
+          }
+        }
+      }
     }
   }
 `;
