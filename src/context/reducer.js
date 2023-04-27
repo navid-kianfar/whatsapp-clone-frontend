@@ -7,6 +7,7 @@ import {
   SELECT_CHATS_COMMAND,
   SETTINGS_COMMAND,
   LOGOUT_COMMAND,
+  CHAT_EXTENDED_HIDE_COMMAND,
   CHAT_SEARCH_COMMAND,
   CHAT_INFO_COMMAND,
   SELECT_CHAT_MESSAGES_COMMAND,
@@ -49,6 +50,13 @@ const reducer = (state, action) => {
         ...state,
         infoPlate: false,
         searchPlate: true,
+      };
+
+    case CHAT_EXTENDED_HIDE_COMMAND:
+      return {
+        ...state,
+        infoPlate: false,
+        searchPlate: false,
       };
     default:
       console.log("here");

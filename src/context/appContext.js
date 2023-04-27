@@ -4,6 +4,7 @@ import {
   OPEN_CHAT_START,
   CHAT_SEARCH_HIDE_COMMAND,
   CHAT_SEARCH_COMMAND,
+  CHAT_EXTENDED_HIDE_COMMAND,
 } from "./actions";
 
 const token = localStorage.getItem("token") || "";
@@ -49,6 +50,12 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const hideExtended = () => {
+    dispatch({
+      type: CHAT_EXTENDED_HIDE_COMMAND,
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -57,6 +64,7 @@ const AppProvider = ({ children }) => {
         openChat,
         showChatSearch,
         hideChatSearch,
+        hideExtended,
       }}
     >
       {children}

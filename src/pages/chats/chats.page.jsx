@@ -8,11 +8,19 @@ import ChatSearch from "../../components/chat-search/chat.search";
 import ChatInfo from "../../components/chat-info/chat.info";
 import ChatLanding from "../../components/chat-landing/chat.landing";
 import Wrapper from "./chats.style";
+import CrossIcon from "../../components/icons/cross.icon";
 
 const ChatsPage = () => {
   const navigate = useNavigate();
-  const { loading, user, chat, darkTheme, searchPlate, infoPlate } =
-    useAppContext();
+  const {
+    loading,
+    user,
+    chat,
+    darkTheme,
+    searchPlate,
+    infoPlate,
+    hideExtended,
+  } = useAppContext();
 
   useEffect(() => {
     if (!user) {
@@ -31,14 +39,19 @@ const ChatsPage = () => {
       <div className="content">
         {chat ? <Chatbox /> : <ChatLanding dark={darkTheme} />}
       </div>
-      {searchPlate && (
+      {(searchPlate || infoPlate) && (
         <div className="extended">
-          <ChatSearch />
-        </div>
-      )}
-      {infoPlate && (
-        <div className="extended">
-          <ChatInfo />
+          <div className="header">
+            <div className="title">
+              {searchPlate ? "Search Messages" : "Contact info"}
+            </div>
+            <div onClick={hideExtended} className="action">
+              <CrossIcon />
+            </div>
+          </div>
+          <div className="inner">
+            {searchPlate ? <ChatSearch /> : <ChatInfo />}
+          </div>
         </div>
       )}
     </Wrapper>
