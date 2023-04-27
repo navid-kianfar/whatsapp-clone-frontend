@@ -14,7 +14,7 @@ const UserIcon = () => {
       xmlSpace="preserve"
     >
       <path
-        fill="#DFE5E7"
+        fill="var(--avatar-placeholder-background)"
         className="background"
         d="M106.251,0.5C164.653,0.5,212,47.846,212,106.25S164.653,212,106.25,212C47.846,212,0.5,164.654,0.5,106.25 S47.846,0.5,106.251,0.5z"
       ></path>

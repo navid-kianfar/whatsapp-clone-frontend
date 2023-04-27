@@ -7,14 +7,15 @@ const GroupIcon = () => {
       height="212"
       width="212"
       preserveAspectRatio="xMidYMid meet"
-      fill="var(--avatar-placeholder-background)"
+      fill="none"
     >
       <path
         className="background"
         d="M105.946 0.25C164.318 0.25 211.64 47.596 211.64 106C211.64 164.404 164.318 211.75 105.945 211.75C47.571 211.75 0.25 164.404 0.25 106C0.25 47.596 47.571 0.25 105.946 0.25Z"
-        fill="#DFE5E7"
+        fill="var(--avatar-placeholder-background)"
       ></path>
       <path
+        fill="var(--avatar-placeholder-primary)"
         className="primary"
         fillRule="evenodd"
         clipRule="evenodd"
