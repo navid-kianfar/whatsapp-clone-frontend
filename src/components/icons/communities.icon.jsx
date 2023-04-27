@@ -1,6 +1,6 @@
 import React from "react";
 
-const GroupsIcon = () => {
+const CommunitiesIcon = () => {
   return (
     <svg
       viewBox="0 0 28 28"
@@ -19,4 +19,4 @@ const GroupsIcon = () => {
   );
 };
 
-export default GroupsIcon;
+export default CommunitiesIcon;

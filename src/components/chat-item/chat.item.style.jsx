@@ -82,6 +82,35 @@ const Wrapper = styled.div`
       }
     }
     .unread {
+      font-weight: 600;
+      color: var(--unread-timestamp);
+      flex: none;
+      max-width: 100%;
+      font-size: 12px;
+      line-height: 20px;
+
+      .badge {
+        transform: scaleX(1) scaleY(1);
+        opacity: 1;
+        margin-right: 0;
+        display: inline-block;
+        color: var(--icon-lighter);
+        vertical-align: top;
+        span {
+          padding: 0.3rem 0.4em;
+          border-radius: 1.1rem;
+          background-color: var(--unread-marker-background);
+          text-align: center;
+          color: var(--unread-marker-text);
+          display: inline-block;
+          min-width: 0.8em;
+          font-weight: 500;
+          line-height: 1;
+          vertical-align: top;
+          min-height: 1em;
+          font-size: 0.75rem;
+        }
+      }
     }
   }
 `;

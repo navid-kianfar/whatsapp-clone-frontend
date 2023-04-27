@@ -76,7 +76,7 @@ const Wrapper = styled.div`
         box-sizing: border-box;
         flex: 1;
         overflow: hidden;
-        height: 49px;
+        height: var(--h-filter-height);
         transition: box-shadow 0.18s ease-out, background-color 0.25s ease-out;
 
         .filter-btn {
@@ -100,10 +100,13 @@ const Wrapper = styled.div`
 
     .chats-container {
       position: relative;
-      max-height: calc(100vh - var(--h-pane-header) - 49px);
+      max-height: calc(100vh - var(--h-pane-header) - var(--h-filter-height));
       overflow-y: auto;
       &.has-notification {
-        padding-top: 90px;
+        margin-top: 77px;
+        max-height: calc(
+          100vh - var(--h-pane-header) - var(--h-filter-height) - 77px
+        );
       }
     }
   }

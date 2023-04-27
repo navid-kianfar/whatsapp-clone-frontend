@@ -19,10 +19,16 @@ const ChatItem = ({ chat, onPick }) => {
         </div>
         <div className="more">
           <div className="last-message">
-            <div className="mode">{chat.lastMessage.mode}</div>
-            <div className="text">{chat.lastMessage.text}</div>
+            <div className="mode">{chat.lastMessage?.mode}</div>
+            <div className="text">{chat.lastMessage?.text}</div>
           </div>
-          <div className="unread">{chat.unread}</div>
+          {chat.unread > 0 && (
+            <div className="unread">
+              <div className="badge">
+                <span>{chat.unread}</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </Wrapper>

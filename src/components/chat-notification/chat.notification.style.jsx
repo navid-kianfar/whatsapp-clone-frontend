@@ -1,14 +1,17 @@
 import styled from "styled-components";
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: calc(var(--h-pane-header) + var(--h-filter-height) + 10px);
   left: 0;
   display: flex;
   align-items: center;
   min-height: 62px;
   background-color: var(--butterbar-default-background);
   padding: 13px 12px 14px 13px;
-  width: calc(100% - 25px);
+  width: 30vw;
+  max-width: 500px;
+  box-sizing: border-box;
+  z-index: 2;
   cursor: pointer;
 
   .icon {

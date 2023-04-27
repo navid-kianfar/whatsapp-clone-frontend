@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/appContext";
 import Loading from "../../components/loading/loading";
 import DashboardArt from "../../components/icons/dashboard.icon";
-import GroupsIcon from "../../components/icons/groups.icon";
+import CommunitiesIcon from "../../components/icons/communities.icon";
 import StatusIcon from "../../components/icons/status.icon";
 import ChatIcon from "../../components/icons/chat.icon";
 import MoreIcon from "../../components/icons/more.icon";
@@ -30,11 +30,14 @@ const initialState = {
       id: (i + 1).toString(),
       title: "chat with person " + (i + 1),
       date: new Date(2022, 1, 1),
-      unread: 0,
-      lastMessage: {
-        mode: "text",
-        text: "last message text",
-      },
+      unread: i % 5 === 0 ? 3 : 0,
+      lastMessage:
+        i % 4 === 0
+          ? {
+              mode: "text",
+              text: "last message text",
+            }
+          : null,
     })),
 };
 
@@ -67,19 +70,19 @@ const ChatsPage = () => {
   };
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   setState({
-    //     ...state,
-    //     notification: {
-    //       show: true,
-    //       title: "Get notified of new messages",
-    //       description: "Turn on desktop notifications",
-    //       icon: "bell",
-    //       command: "",
-    //       badgeColor: "",
-    //     },
-    //   });
-    // }, 1000);
+    setTimeout(() => {
+      setState({
+        ...state,
+        notification: {
+          show: true,
+          title: "Get notified of new messages",
+          description: "Turn on desktop notifications",
+          icon: "bell",
+          command: "",
+          badgeColor: "",
+        },
+      });
+    }, 1000);
 
     if (!user) {
       navigate("/auth");
@@ -98,7 +101,7 @@ const ChatsPage = () => {
           </div>
           <div className="actions">
             <button>
-              <GroupsIcon />
+              <CommunitiesIcon />
             </button>
             <button>
               <StatusIcon />
@@ -133,7 +136,11 @@ const ChatsPage = () => {
               />
             )}
             {state.chats.map((chat) => (
-              <ChatItem key={chat.id} chat={chat} onPick={pickChat} />
+              <ChatItem
+                key={chat.id}
+                chat={chat}
+                onPick={() => pickChat(chat)}
+              />
             ))}
           </div>
         </div>

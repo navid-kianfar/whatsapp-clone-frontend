@@ -1,3 +1,6 @@
+:root {
+    --h-filter-height: 49px;
+}
 body {
     font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
     color: var(--primary);
