@@ -168,6 +168,8 @@ const Wrapper = styled.div`
     flex-direction: column;
     flex-grow: 1;
     border-left: 1px solid var(--border-stronger);
+    width: 30vw;
+    max-width: 430px;
 
     .header {
       display: flex;

@@ -11,23 +11,6 @@ import ChatItem from "../../components/chat-item/chat.item";
 import HeaderMenu from "../../components/menus/header.menu";
 import Me from "../../assets/images/me.jpeg";
 
-const chats = Array(50)
-  .fill(0)
-  .map((e, i) => ({
-    group: i % 3 === 0,
-    id: (i + 1).toString(),
-    title: "chat with person " + (i + 1),
-    date: new Date(2022, 1, 1),
-    unread: i % 5 === 0 ? 3 : 0,
-    lastMessage:
-      i % 4 === 0
-        ? {
-            mode: "text",
-            text: "last message text",
-          }
-        : null,
-  }));
-
 const defaultNotification = {
   show: false,
   title: "",
@@ -42,18 +25,15 @@ const initialState = {
   unreadOnly: false,
   notification: { ...defaultNotification },
   filtered: [],
-  chats,
 };
 
 const ChatSidebar = () => {
-  const { openChat, dispatch } = useAppContext();
+  const { openChat, dispatch, chats } = useAppContext();
   const [state, setState] = useState(initialState);
 
   const toggleFilterUnRead = () => {
     const unread = !state.unreadOnly;
-    const filtered = unread
-      ? state.chats.filter((chat) => chat.unread > 0)
-      : [];
+    const filtered = unread ? chats.filter((chat) => chat.unread > 0) : [];
     setState({ ...state, unreadOnly: unread, filtered });
   };
 
@@ -134,7 +114,7 @@ const ChatSidebar = () => {
           {state.unreadOnly && (
             <div className="filtered-note">FILTERED BY UNREAD</div>
           )}
-          {(state.unreadOnly ? state.filtered : state.chats).map((chat) => (
+          {(state.unreadOnly ? state.filtered : chats).map((chat) => (
             <ChatItem key={chat.id} chat={chat} onPick={() => pickChat(chat)} />
           ))}
         </div>

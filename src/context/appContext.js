@@ -7,16 +7,9 @@ import {
   CHAT_EXTENDED_HIDE_COMMAND,
 } from "./actions";
 
-const token = localStorage.getItem("token") || "";
-let user = token ? JSON.parse(localStorage.getItem("user")) : null;
-
-if (!user) {
-  user = {};
-}
-
 const initialState = {
-  token,
-  user,
+  token: "",
+  user: null,
   qrCode: "",
   loading: false,
   darkTheme: true,
@@ -25,6 +18,40 @@ const initialState = {
   searchPlate: false,
   infoPlate: false,
 };
+
+const loadUser = () => {
+  initialState.token = localStorage.getItem("token") || "";
+  initialState.user = initialState.token
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
+};
+const loadChats = () => {
+  initialState.chats = Array(50)
+    .fill(0)
+    .map((e, i) => ({
+      identifier: "+905392222222",
+      group: i % 3 === 0,
+      id: (i + 1).toString(),
+      title: "chat with person " + (i + 1),
+      date: new Date(2022, 1, 1),
+      unread: i % 5 === 0 ? 3 : 0,
+      lastMessage:
+        i % 4 === 0
+          ? {
+              mode: "text",
+              text: "last message text",
+            }
+          : null,
+    }));
+};
+
+loadUser();
+loadChats();
+
+// TODO: must be removed
+if (!initialState.user) {
+  initialState.user = {};
+}
 
 const AppContext = React.createContext(initialState);
 

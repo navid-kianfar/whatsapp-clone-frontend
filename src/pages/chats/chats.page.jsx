@@ -52,7 +52,11 @@ const ChatsPage = () => {
             </div>
           </div>
           <div className="inner">
-            {searchPlate ? <ChatSearch /> : <ChatInfo />}
+            {searchPlate ? (
+              <ChatSearch chat={chat} />
+            ) : (
+              <ChatInfo chat={chat} />
+            )}
           </div>
         </div>
       )}
