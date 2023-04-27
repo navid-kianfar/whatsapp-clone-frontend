@@ -7,47 +7,50 @@ import SendIcon from "../icons/send.icon";
 import SearchIcon from "../icons/search.icon";
 import MoreIcon from "../icons/more.icon";
 import Avatar from "../avatar/avatar";
+import moment from "moment";
 
 const ChatBox = ({ chat }) => {
+  const date = moment(chat.date).format("DD/MM/YYYY");
+
   return (
     <Wrapper className="chatbox-container">
       <header>
-        <div className="info">
+        <div className="info-wrapper">
           <div className="avatar">
             <Avatar chat={chat} />
           </div>
           <div className="info">
             <div className="title">{chat.title}</div>
-            <div className="date">{chat.date.toString()}</div>
+            <div className="date">{date}</div>
           </div>
         </div>
         <div className="actions">
-          <div className="action">
+          <button className="action action-holder">
             <SearchIcon />
-          </div>
-          <div className="action">
+          </button>
+          <button className="action action-holder">
             <MoreIcon />
-          </div>
+          </button>
         </div>
       </header>
       <main></main>
       <footer>
         <div className="footer-inner">
           <div className="actions">
-            <div className="action">
+            <button className="action action-holder">
               <EmojiIcon />
-            </div>
-            <div className="action">
+            </button>
+            <button className="action action-holder">
               <AttachmentIcon />
-            </div>
+            </button>
           </div>
           <div className="send-wrapper">
             <div className="input-wrapper">
               <textarea rows="1" placeholder="Type a message"></textarea>
             </div>
-            <div className="send-action">
+            <button className="send-action action-holder">
               <MicIcon />
-            </div>
+            </button>
           </div>
         </div>
       </footer>
