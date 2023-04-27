@@ -131,8 +131,8 @@ const Wrapper = styled.div`
     flex-direction: column;
     flex-grow: 1;
     border-left: 1px solid var(--border-stronger);
-    padding-top: 28px;
-    padding-bottom: 28px;
+    /* padding-top: 28px;
+    padding-bottom: 28px; */
     cursor: default;
     background-color: var(--intro-background);
     align-items: center;
