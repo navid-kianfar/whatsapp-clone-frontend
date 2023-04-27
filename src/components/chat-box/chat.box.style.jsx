@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import ChatBackground from "../../assets/images/chat-background.png";
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,6 +22,19 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    position: relative;
+
+    &::before {
+      content: "";
+      background-image: url(${ChatBackground});
+      background-repeat: repeat;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.06;
+    }
   }
   footer {
     display: flex;
