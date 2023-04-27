@@ -4,11 +4,32 @@ import MicIcon from "../icons/mic.icon";
 import EmojiIcon from "../icons/emoji.icon";
 import AttachmentIcon from "../icons/attachment.icon";
 import SendIcon from "../icons/send.icon";
+import SearchIcon from "../icons/search.icon";
+import MoreIcon from "../icons/more.icon";
+import Avatar from "../avatar/avatar";
 
 const ChatBox = ({ chat }) => {
   return (
     <Wrapper className="chatbox-container">
-      <header></header>
+      <header>
+        <div className="info">
+          <div className="avatar">
+            <Avatar chat={chat} />
+          </div>
+          <div className="info">
+            <div className="title">{chat.title}</div>
+            <div className="date">{chat.date.toString()}</div>
+          </div>
+        </div>
+        <div className="actions">
+          <div className="action">
+            <SearchIcon />
+          </div>
+          <div className="action">
+            <MoreIcon />
+          </div>
+        </div>
+      </header>
       <main></main>
       <footer>
         <div className="footer-inner">

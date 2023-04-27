@@ -17,6 +17,27 @@ const Wrapper = styled.div`
     align-items: center;
     width: 100%;
     height: 59px;
+
+    .info {
+      .avatar {
+        svg {
+        }
+      }
+      .info {
+        .title {
+        }
+        .date {
+        }
+      }
+    }
+    .actions {
+      .action {
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
   }
   main {
     display: flex;
