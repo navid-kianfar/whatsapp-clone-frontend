@@ -50,10 +50,10 @@ const ChatBox = ({ chat }) => {
           </div>
         </div>
         <div className="actions">
-          <button className="action action-holder">
+          <button disabled={state.loading} className="action action-holder">
             <SearchIcon />
           </button>
-          <button className="action action-holder">
+          <button disabled={state.loading} className="action action-holder">
             <MoreIcon />
           </button>
         </div>
@@ -74,7 +74,11 @@ const ChatBox = ({ chat }) => {
                 <CrossIcon />
               </button>
             )}
-            <button onClick={emojiPlate} className="action action-holder">
+            <button
+              disabled={state.loading}
+              onClick={emojiPlate}
+              className="action action-holder"
+            >
               <EmojiIcon />
             </button>
             {state.plate > 0 && (
@@ -87,15 +91,22 @@ const ChatBox = ({ chat }) => {
                 </button>
               </>
             )}
-            <button className="action action-holder">
+            <button disabled={state.loading} className="action action-holder">
               <AttachmentIcon />
             </button>
           </div>
           <div className="send-wrapper">
             <div className="input-wrapper">
-              <textarea rows="1" placeholder="Type a message"></textarea>
+              <textarea
+                disabled={state.loading}
+                rows="1"
+                placeholder="Type a message"
+              ></textarea>
             </div>
-            <button className="send-action action-holder">
+            <button
+              disabled={state.loading}
+              className="send-action action-holder"
+            >
               <MicIcon />
             </button>
           </div>
