@@ -114,6 +114,16 @@ const Wrapper = styled.div`
           100vh - var(--h-pane-header) - var(--h-filter-height) - 77px
         );
       }
+
+      .filtered-note {
+        box-sizing: border-box;
+        height: 72px;
+        font-size: 16px;
+        color: var(--teal);
+        display: flex;
+        align-items: center;
+        padding-inline-start: 20px;
+      }
     }
   }
   .content {

@@ -147,6 +147,9 @@ const ChatsPage = () => {
                 notification={state.notification}
               />
             )}
+            {state.unreadOnly && (
+              <div className="filtered-note">FILTERED BY UNREAD</div>
+            )}
             {(state.unreadOnly ? state.filtered : state.chats).map((chat) => (
               <ChatItem
                 key={chat.id}
