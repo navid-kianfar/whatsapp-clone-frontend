@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Wrapper from "./chat.box.style";
 import MicIcon from "../icons/mic.icon";
 import EmojiIcon from "../icons/emoji.icon";
@@ -11,6 +11,8 @@ import SearchIcon from "../icons/search.icon";
 import MoreIcon from "../icons/more.icon";
 import Avatar from "../avatar/avatar";
 import AnimatedLoader from "../animated-loader/animated.loader";
+import ChatboxMenu from "../menus/chatbox.menu";
+import { useAppContext } from "../../context/appContext";
 import moment from "moment";
 
 const PlateType = {
@@ -21,11 +23,13 @@ const PlateType = {
 };
 
 const initialState = {
-  loading: true,
+  moreMenuAnchor: null,
+  loading: false,
   plate: PlateType.none,
 };
 
 const ChatBox = ({ chat }) => {
+  // const { loading, dispatch } = useAppContext();
   const [state, setState] = useState(initialState);
   const date = moment(chat.date).format("DD/MM/YYYY");
 
@@ -36,6 +40,23 @@ const ChatBox = ({ chat }) => {
   const emojiPlate = () => {
     setState({ ...state, plate: PlateType.emoji });
   };
+
+  const setMoreMenuAnchor = (event) => {
+    setState({ ...state, moreMenuAnchor: event.currentTarget });
+  };
+  const releaseMoreMenuAnchor = (command) => {
+    if (command) {
+      command.payload = command.payload || {};
+      // dispatch(command);
+    }
+    setState({ ...state, moreMenuAnchor: null });
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setState({ ...state, loading: false });
+    }, 1000);
+  }, []);
 
   return (
     <Wrapper className="chatbox-container">
@@ -53,11 +74,19 @@ const ChatBox = ({ chat }) => {
           <button disabled={state.loading} className="action action-holder">
             <SearchIcon />
           </button>
-          <button disabled={state.loading} className="action action-holder">
+          <button
+            onClick={setMoreMenuAnchor}
+            disabled={state.loading}
+            className="action action-holder"
+          >
             <MoreIcon />
           </button>
         </div>
       </header>
+      <ChatboxMenu
+        anchorEl={state.moreMenuAnchor}
+        release={releaseMoreMenuAnchor}
+      />
       <main className={state.loading ? "loading" : ""}>
         {state.loading && (
           <div className="loader-wrapper">

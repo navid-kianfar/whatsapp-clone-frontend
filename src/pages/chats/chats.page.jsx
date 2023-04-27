@@ -12,10 +12,12 @@ import SearchChats from "../../components/search-chats/search.chats";
 import ChatNotification from "../../components/chat-notification/chat.notification";
 import Chatbox from "../../components/chat-box/chat.box";
 import ChatItem from "../../components/chat-item/chat.item";
+import HeaderMenu from "../../components/menus/header.menu";
 import Wrapper from "./chats.style";
 import Me from "../../assets/images/me.jpeg";
 
 const initialState = {
+  moreMenuAnchor: null,
   unreadOnly: false,
   notification: {
     show: false,
@@ -46,7 +48,8 @@ const initialState = {
 
 const ChatsPage = () => {
   const navigate = useNavigate();
-  const { loading, user, chat, darkTheme, openChat } = useAppContext();
+  const { loading, user, chat, darkTheme, openChat, dispatch } =
+    useAppContext();
   const [state, setState] = useState(initialState);
 
   const toggleFilterUnRead = () => {
@@ -55,6 +58,18 @@ const ChatsPage = () => {
       ? state.chats.filter((chat) => chat.unread > 0)
       : [];
     setState({ ...state, unreadOnly: unread, filtered });
+  };
+
+  const setMoreMenuAnchor = (event) => {
+    setState({ ...state, moreMenuAnchor: event.currentTarget });
+  };
+
+  const releaseMoreMenuAnchor = (command) => {
+    if (command) {
+      command.payload = command.payload || {};
+      dispatch(command);
+    }
+    setState({ ...state, moreMenuAnchor: null });
   };
 
   const pickChat = (chat) => {
@@ -123,10 +138,14 @@ const ChatsPage = () => {
             <button>
               <ChatIcon />
             </button>
-            <button>
+            <button onClick={setMoreMenuAnchor}>
               <MoreIcon />
             </button>
           </div>
+          <HeaderMenu
+            anchorEl={state.moreMenuAnchor}
+            release={releaseMoreMenuAnchor}
+          />
         </header>
 
         <div className="inner-container">
