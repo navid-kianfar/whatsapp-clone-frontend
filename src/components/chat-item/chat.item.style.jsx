@@ -7,8 +7,7 @@ const Wrapper = styled.div`
   padding: 13px 12px 14px 13px;
   width: calc(100% - 25px);
   cursor: pointer;
-  border-bottom: 1px solid var(--border-list);
-  border-bottom-color: var(--background-default-hover);
+  border-bottom: 1px solid var(--background-default-hover);
 
   &:hover {
     background-color: var(--background-default-hover) !important;

@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   z-index: 2;
   cursor: pointer;
+  border-bottom: 1px solid var(--background-default-hover);
 
   .icon {
     margin-inline-end: 15px;
