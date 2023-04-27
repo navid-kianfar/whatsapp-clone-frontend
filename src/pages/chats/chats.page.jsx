@@ -42,11 +42,13 @@ const ChatsPage = () => {
       {(searchPlate || infoPlate) && (
         <div className="extended">
           <div className="header">
+            <div className="action">
+              <button onClick={hideExtended}>
+                <CrossIcon />
+              </button>
+            </div>
             <div className="title">
               {searchPlate ? "Search Messages" : "Contact info"}
-            </div>
-            <div onClick={hideExtended} className="action">
-              <CrossIcon />
             </div>
           </div>
           <div className="inner">

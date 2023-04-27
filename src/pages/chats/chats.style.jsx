@@ -162,6 +162,57 @@ const Wrapper = styled.div`
       }
     }
   }
+
+  .extended {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border-left: 1px solid var(--border-stronger);
+
+    .header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 16px;
+      align-items: center;
+      background-color: var(--panel-header-background);
+      height: var(--h-pane-header);
+      box-sizing: border-box;
+      .action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        margin-inline-end: 10px;
+        button {
+          background: none;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 3px;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          svg {
+            color: var(--panel-header-icon);
+          }
+        }
+      }
+      .title {
+        display: flex;
+        flex-grow: 1;
+      }
+    }
+    .inner {
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+  }
 `;
 
 export default Wrapper;
