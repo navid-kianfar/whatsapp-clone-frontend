@@ -10,6 +10,7 @@ import MoreIcon from "../../components/icons/more.icon";
 import PyramidIcon from "../../components/icons/pyramid.icon";
 import SearchChats from "../../components/search-chats/search.chats";
 import ChatNotification from "../../components/chat-notification/chat.notification";
+import Chatbox from "../../components/chat-box/chat.box";
 import ChatItem from "../../components/chat-item/chat.item";
 import Wrapper from "./chats.style";
 import Me from "../../assets/images/me.jpeg";
@@ -92,6 +93,9 @@ const ChatsPage = () => {
           badgeColor: "",
         },
       });
+
+      // TODO: remove this auto select
+      pickChat(state.chats[0]);
     }, 1000);
 
     if (!user) {
@@ -176,6 +180,7 @@ const ChatsPage = () => {
             </div>
           </div>
         )}
+        {chat && <Chatbox chat={chat} />}
       </div>
     </Wrapper>
   );
