@@ -11,6 +11,7 @@ import Wrapper from "./chats.style";
 import CrossIcon from "../../components/icons/cross.icon";
 import MuteChatDialog from "../../components/dialogs/mute-chat-dialog/mute.chat.dialog";
 import BlockChatDialog from "../../components/dialogs/block-chat-dialog/block.chat.dialog";
+import ReportChatDialog from "../../components/dialogs/report-chat-dialog/report.chat.dialog";
 
 const ChatsPage = () => {
   const navigate = useNavigate();
@@ -73,6 +74,10 @@ const ChatsPage = () => {
 
       {operations.chatForBlock && (
         <BlockChatDialog chat={chat} handleClose={resetChatOperations} />
+      )}
+
+      {operations.chatForReport && (
+        <ReportChatDialog chat={chat} handleClose={resetChatOperations} />
       )}
     </>
   );

@@ -198,6 +198,10 @@ html[dir="rtl"] #initial_startup .graphic::after {
   color: var(--primary) !important;
   font-size: 0.87rem !important;
 }
+.report-dialog-wrapper .report-desc {
+  border-bottom: 1px solid var(--border-bubble);
+  margin-bottom: 10px;
+}
 .block-dialog-wrapper .report-desc {
   padding-left: 26px;
   padding-top: 6px;

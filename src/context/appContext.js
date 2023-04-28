@@ -8,11 +8,13 @@ import {
   MUTE_CHAT_COMMAND,
   CHAT_RESET_OPERATION_COMMAND,
   BLOCK_CHAT_COMMAND,
+  REPORT_CHAT_COMMAND,
 } from "./actions";
 
 const defaultOperations = {
   chatForMute: null,
   chatForBlock: null,
+  chatForReport: null,
 };
 
 const initialState = {
@@ -103,6 +105,13 @@ const AppProvider = ({ children }) => {
   const blockChat = (chat) => {
     dispatch({
       type: BLOCK_CHAT_COMMAND,
+      payload: chat,
+    });
+  };
+
+  const reportChat = (chat) => {
+    dispatch({
+      type: REPORT_CHAT_COMMAND,
       payload: chat,
     });
   };
