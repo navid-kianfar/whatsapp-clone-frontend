@@ -210,3 +210,13 @@ html[dir="rtl"] #initial_startup .graphic::after {
   color: var(--primary);
   border-bottom: 1px solid var(--border-bubble);
 }
+
+/* ---------------------------------------------- */
+/* Checkbox */
+/* ---------------------------------------------- */
+.MuiCheckbox-root {
+  color: var(--primary);
+}
+.MuiCheckbox-root.Mui-checked {
+  color: var(--switch-button-checked-color) !important;
+}
