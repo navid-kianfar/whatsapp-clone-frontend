@@ -23,6 +23,7 @@ const loadChats = () => {
   initialState.chats = Array(50)
     .fill(0)
     .map((e, i) => ({
+      avatar: i % 4 === 0 ? null : `https://i.pravatar.cc/150?img=${i + 1}`,
       identifier: "+905392222222",
       group: i % 3 === 0,
       id: (i + 1).toString(),

@@ -26,7 +26,7 @@ const PlateType = {
 
 const initialState = {
   moreMenuAnchor: null,
-  loading: false,
+  loading: true,
   plate: PlateType.none,
   messages,
 };
@@ -56,10 +56,13 @@ const ChatBox = () => {
   };
 
   useEffect(() => {
+    if (!state.loading) {
+      setState({ ...state, loading: true });
+    }
     setTimeout(() => {
       setState({ ...state, loading: false });
     }, 1000);
-  }, []);
+  }, [chat]);
 
   return (
     <Wrapper className="chatbox-container">
