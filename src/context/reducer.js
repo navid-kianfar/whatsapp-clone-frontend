@@ -22,6 +22,7 @@ import {
 
 const defaultOperations = {
   chatForMute: null,
+  chatForBlock: null,
 };
 
 const reducer = (state, action) => {
@@ -69,6 +70,14 @@ const reducer = (state, action) => {
         operations: {
           ...defaultOperations,
           chatForMute: action.payload,
+        },
+      };
+    case BLOCK_CHAT_COMMAND:
+      return {
+        ...state,
+        operations: {
+          ...defaultOperations,
+          chatForBlock: action.payload,
         },
       };
     case CHAT_RESET_OPERATION_COMMAND:

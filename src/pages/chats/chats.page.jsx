@@ -10,6 +10,7 @@ import ChatLanding from "../../components/chat-landing/chat.landing";
 import Wrapper from "./chats.style";
 import CrossIcon from "../../components/icons/cross.icon";
 import MuteChatDialog from "../../components/dialogs/mute-chat-dialog/mute.chat.dialog";
+import BlockChatDialog from "../../components/dialogs/block-chat-dialog/block.chat.dialog";
 
 const ChatsPage = () => {
   const navigate = useNavigate();
@@ -67,7 +68,11 @@ const ChatsPage = () => {
       </Wrapper>
 
       {operations.chatForMute && (
-        <MuteChatDialog handleClose={resetChatOperations} />
+        <MuteChatDialog chat={chat} handleClose={resetChatOperations} />
+      )}
+
+      {operations.chatForBlock && (
+        <BlockChatDialog chat={chat} handleClose={resetChatOperations} />
       )}
     </>
   );

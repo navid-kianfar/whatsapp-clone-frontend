@@ -7,10 +7,12 @@ import {
   CHAT_EXTENDED_HIDE_COMMAND,
   MUTE_CHAT_COMMAND,
   CHAT_RESET_OPERATION_COMMAND,
+  BLOCK_CHAT_COMMAND,
 } from "./actions";
 
 const defaultOperations = {
   chatForMute: null,
+  chatForBlock: null,
 };
 
 const initialState = {
@@ -98,6 +100,13 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const blockChat = (chat) => {
+    dispatch({
+      type: BLOCK_CHAT_COMMAND,
+      payload: chat,
+    });
+  };
+
   const resetChatOperations = () => {
     dispatch({
       type: CHAT_RESET_OPERATION_COMMAND,
@@ -114,6 +123,7 @@ const AppProvider = ({ children }) => {
         hideChatSearch,
         hideExtended,
         muteChat,
+        blockChat,
         resetChatOperations,
       }}
     >
