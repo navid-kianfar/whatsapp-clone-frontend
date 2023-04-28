@@ -32,11 +32,11 @@ const ChatInfo = ({ chat }) => {
             <ChevronRightIcon />
           </div>
         </div>
-      </div>
-      <div className="previews colored-bg">
-        <PreviewThumb />
-        <PreviewThumb />
-        <PreviewThumb />
+        <div className="previews">
+          <PreviewThumb />
+          <PreviewThumb />
+          <PreviewThumb />
+        </div>
       </div>
       <div className="commands colored-bg">
         <div className="command">
@@ -71,9 +71,7 @@ const ChatInfo = ({ chat }) => {
             <EncryptionIcon />
           </div>
           <div className="title">Encryption</div>
-          <div className="option">
-            <ChevronRightIcon />
-          </div>
+          <div className="option"></div>
         </div>
       </div>
       <div className="common-groups colored-bg">
