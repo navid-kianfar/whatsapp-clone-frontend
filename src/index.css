@@ -1,5 +1,7 @@
 :root {
   --h-filter-height: 49px;
+  --h-chatbox-footer-height: 62px;
+  --h-chatbox-footer-with-extended-height: 62px;
 }
 body {
   font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu,

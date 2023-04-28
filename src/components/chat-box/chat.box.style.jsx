@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   flex-grow: 1;
   width: 100%;
+  position: relative;
   header {
     box-shadow: 0 1px 3px rgba(var(--shadow-rgb), 0.4);
     padding: 15px 16px 10px;
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 59px;
+    height: var(--h-pane-header);
 
     .info-wrapper {
       display: flex;
@@ -77,23 +78,25 @@ const Wrapper = styled.div`
       }
     }
   }
+
+  .message-bg {
+    content: "";
+    background-image: url(${ChatBackground});
+    background-repeat: repeat;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.06;
+  }
   main {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     position: relative;
-
-    &::before {
-      content: "";
-      background-image: url(${ChatBackground});
-      background-repeat: repeat;
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
-      opacity: 0.06;
-    }
+    height: calc(100vh - var(--h-pane-header) - var(--h-chatbox-footer-height));
+    overflow-y: auto;
 
     &.loadng {
     }
@@ -118,7 +121,7 @@ const Wrapper = styled.div`
     flex: none;
     order: 3;
     width: 100%;
-    min-height: 62px;
+    min-height: var(--h-chatbox-footer-height);
 
     .footer-inner {
       border-left: 1px solid var(--border-stronger);

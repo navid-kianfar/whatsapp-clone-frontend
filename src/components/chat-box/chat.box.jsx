@@ -63,6 +63,7 @@ const ChatBox = () => {
 
   return (
     <Wrapper className="chatbox-container">
+      <div className="message-bg"></div>
       <header>
         <div className="info-wrapper">
           <div className="avatar">
