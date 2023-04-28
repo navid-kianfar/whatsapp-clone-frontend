@@ -11,6 +11,7 @@ import DisappearingIcon from "../icons/disappearing.icon";
 import EncryptionIcon from "../icons/encryption.icon";
 import StarIcon from "../icons/star.icon";
 import Wrapper from "./chat.info.style";
+import Switch from "@mui/material/Switch";
 
 const ChatInfo = ({ chat }) => {
   return (
@@ -54,7 +55,7 @@ const ChatInfo = ({ chat }) => {
           </div>
           <div className="title">Mute notification</div>
           <div className="option">
-            <ChevronRightIcon />
+            <Switch />
           </div>
         </div>
         <div className="command">

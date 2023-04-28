@@ -135,3 +135,18 @@ html[dir="rtl"] #initial_startup .graphic::after {
 .MuiMenu-paper li:hover {
   background-color: var(--dropdown-background-hover);
 }
+/* ---------------------------------------------- */
+/* Switch */
+/* ---------------------------------------------- */
+.MuiSwitch-colorPrimary {
+  color: var(--switch-button-color) !important;
+}
+.MuiSwitch-track {
+  background-color: var(--switch-track-color) !important;
+}
+.MuiSwitch-colorPrimary.Mui-checked {
+  color: var(--switch-button-checked-color) !important;
+}
+.Mui-checked + .MuiSwitch-track {
+  background-color: var(--switch-track-checked-color) !important;
+}
