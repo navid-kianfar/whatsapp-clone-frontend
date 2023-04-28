@@ -28,7 +28,7 @@ const initialState = {
 };
 
 const ChatSidebar = () => {
-  const { openChat, dispatch, chats } = useAppContext();
+  const { openChat, dispatch, chats, chat: current } = useAppContext();
   const [state, setState] = useState(initialState);
 
   const toggleFilterUnRead = () => {
@@ -115,7 +115,12 @@ const ChatSidebar = () => {
             <div className="filtered-note">FILTERED BY UNREAD</div>
           )}
           {(state.unreadOnly ? state.filtered : chats).map((chat) => (
-            <ChatItem key={chat.id} chat={chat} onPick={() => pickChat(chat)} />
+            <ChatItem
+              current={chat === current}
+              key={chat.id}
+              chat={chat}
+              onPick={() => pickChat(chat)}
+            />
           ))}
         </div>
       </div>

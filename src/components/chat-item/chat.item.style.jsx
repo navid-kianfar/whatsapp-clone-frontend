@@ -9,7 +9,8 @@ const Wrapper = styled.div`
   cursor: pointer;
   border-bottom: 1px solid var(--background-default-hover);
 
-  &:hover {
+  &:hover,
+  &.current {
     background-color: var(--background-default-hover) !important;
   }
 

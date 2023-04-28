@@ -3,12 +3,15 @@ import moment from "moment";
 import Wrapper from "./chat.item.style";
 import Avatar from "../avatar/avatar";
 
-const ChatItem = ({ chat, onPick }) => {
+const ChatItem = ({ chat, current, onPick }) => {
   const withinWeek = moment().diff(chat.date, "days") < 7;
   const format = withinWeek ? "dddd" : "DD/MM/YYYY";
   const date = moment(chat.date).format(format);
   return (
-    <Wrapper onClick={onPick} className="chat-item-wrapper">
+    <Wrapper
+      onClick={onPick}
+      className={`chat-item-wrapper ${current ? "current" : ""}`}
+    >
       <div className="avatar">
         <Avatar url={chat.avatar} group={chat.group} />
       </div>
