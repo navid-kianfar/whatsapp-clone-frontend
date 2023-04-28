@@ -5,6 +5,7 @@ import {
   CHAT_SEARCH_HIDE_COMMAND,
   CHAT_SEARCH_COMMAND,
   CHAT_EXTENDED_HIDE_COMMAND,
+  MUTE_CHAT_COMMAND,
 } from "./actions";
 
 const initialState = {
@@ -17,6 +18,9 @@ const initialState = {
   chat: null,
   searchPlate: false,
   infoPlate: false,
+  operations: {
+    chatForMute: null,
+  },
 };
 
 const loadUser = () => {
@@ -84,6 +88,13 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const muteChat = (chat) => {
+    dispatch({
+      type: MUTE_CHAT_COMMAND,
+      payload: chat,
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -93,6 +104,7 @@ const AppProvider = ({ children }) => {
         showChatSearch,
         hideChatSearch,
         hideExtended,
+        muteChat,
       }}
     >
       {children}

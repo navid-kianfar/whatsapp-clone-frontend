@@ -58,6 +58,14 @@ const reducer = (state, action) => {
         infoPlate: false,
         searchPlate: false,
       };
+    case MUTE_CHAT_COMMAND:
+      return {
+        ...state,
+        operations: {
+          ...state.operations,
+          chatForMute: action.payload,
+        },
+      };
     default:
       console.log("here");
       return state;

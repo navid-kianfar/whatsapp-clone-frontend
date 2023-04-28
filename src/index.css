@@ -150,3 +150,27 @@ html[dir="rtl"] #initial_startup .graphic::after {
 .Mui-checked + .MuiSwitch-track {
   background-color: var(--switch-track-checked-color) !important;
 }
+
+/* ---------------------------------------------- */
+/* Dialog */
+/* ---------------------------------------------- */
+.MuiDialog-paper {
+  background-color: var(--modal-background) !important;
+}
+.MuiDialogTitle-root {
+  color: var(--primary) !important;
+}
+.MuiDialogContentText-root {
+  color: var(--secondary) !important;
+}
+.MuiButton-root {
+  background-color: var(--button-secondary-background) !important;
+  color: var(--button-secondary) !important;
+  border-radius: 24px !important;
+  border: 1px solid var(--button-secondary-border) !important;
+  padding: 7px 15px !important;
+}
+.MuiButton-root.primary {
+  color: var(--button-primary) !important;
+  background-color: var(--button-primary-background) !important;
+}
