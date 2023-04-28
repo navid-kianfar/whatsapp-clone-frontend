@@ -12,6 +12,8 @@ import CrossIcon from "../../components/icons/cross.icon";
 import MuteChatDialog from "../../components/dialogs/mute-chat-dialog/mute.chat.dialog";
 import BlockChatDialog from "../../components/dialogs/block-chat-dialog/block.chat.dialog";
 import ReportChatDialog from "../../components/dialogs/report-chat-dialog/report.chat.dialog";
+import DeleteChatDialog from "../../components/dialogs/delete-chat-dialog/delete.chat.dialog";
+import ChearChatDialog from "../../components/dialogs/clear-chat-dialog/clear.chat.dialog";
 
 const ChatsPage = () => {
   const navigate = useNavigate();
@@ -25,12 +27,16 @@ const ChatsPage = () => {
     hideExtended,
     operations,
     resetChatOperations,
+    appLoaded,
   } = useAppContext();
 
   useEffect(() => {
     if (!user) {
       navigate("/auth");
+      return;
     }
+
+    setTimeout(() => appLoaded(), 500);
   }, [user, navigate]);
 
   if (loading) {
@@ -78,6 +84,14 @@ const ChatsPage = () => {
 
       {operations.chatForReport && (
         <ReportChatDialog chat={chat} handleClose={resetChatOperations} />
+      )}
+
+      {operations.chatForClear && (
+        <ChearChatDialog chat={chat} handleClose={resetChatOperations} />
+      )}
+
+      {operations.chatForDelete && (
+        <DeleteChatDialog chat={chat} handleClose={resetChatOperations} />
       )}
     </>
   );

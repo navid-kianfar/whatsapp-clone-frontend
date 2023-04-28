@@ -9,6 +9,7 @@ import {
   CHAT_RESET_OPERATION_COMMAND,
   BLOCK_CHAT_COMMAND,
   REPORT_CHAT_COMMAND,
+  APP_LOADED,
 } from "./actions";
 import { initialState } from "./defaults";
 
@@ -86,6 +87,12 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const appLoaded = () => {
+    dispatch({
+      type: APP_LOADED,
+    });
+  };
+
   const hideChatSearch = () => {
     dispatch({
       type: CHAT_SEARCH_HIDE_COMMAND,
@@ -109,6 +116,7 @@ const AppProvider = ({ children }) => {
       value={{
         ...state,
         dispatch,
+        appLoaded,
         openChat,
         showChatSearch,
         hideChatSearch,

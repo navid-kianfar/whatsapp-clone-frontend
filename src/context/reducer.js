@@ -18,6 +18,7 @@ import {
   REPORT_CHAT_COMMAND,
   BLOCK_CHAT_COMMAND,
   CHAT_RESET_OPERATION_COMMAND,
+  APP_LOADED,
 } from "./actions";
 import { defaultOperations } from "./defaults";
 
@@ -84,10 +85,31 @@ const reducer = (state, action) => {
           chatForReport: action.payload,
         },
       };
+    case CLEAR_CHAT_COMMAND:
+      return {
+        ...state,
+        operations: {
+          ...defaultOperations,
+          chatForClear: action.payload,
+        },
+      };
+    case DELETE_CHAT_COMMAND:
+      return {
+        ...state,
+        operations: {
+          ...defaultOperations,
+          chatForDelete: action.payload,
+        },
+      };
     case CHAT_RESET_OPERATION_COMMAND:
       return {
         ...state,
         operations: { ...defaultOperations },
+      };
+    case APP_LOADED:
+      return {
+        ...state,
+        loading: false,
       };
     default:
       console.log("here");

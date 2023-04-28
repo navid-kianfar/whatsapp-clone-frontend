@@ -2,13 +2,15 @@ const defaultOperations = {
   chatForMute: null,
   chatForBlock: null,
   chatForReport: null,
+  chatForClear: null,
+  chatForDelete: null,
 };
 
 const initialState = {
   token: "",
   user: null,
   qrCode: "",
-  loading: false,
+  loading: true,
   darkTheme: true,
   chats: [],
   chat: null,
