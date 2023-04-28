@@ -33,6 +33,7 @@ const loadChats = () => {
       group: i % 3 === 0,
       id: (i + 1).toString(),
       title: "chat with person " + (i + 1),
+      description: "this is a description",
       date: new Date(2022, 1, 1),
       unread: i % 5 === 0 ? 3 : 0,
       lastMessage:
