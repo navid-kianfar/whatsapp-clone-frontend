@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 30vw;
+    min-width: 30vw;
     max-width: 500px;
 
     header {
@@ -169,6 +170,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     flex-grow: 1;
     width: 30vw;
+    min-width: 30vw;
     max-width: 430px;
     background-color: var(--drawer-background-deep);
 

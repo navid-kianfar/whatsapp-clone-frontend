@@ -95,8 +95,11 @@ const Wrapper = styled.div`
     flex-direction: column;
     flex-grow: 1;
     position: relative;
-    height: calc(100vh - var(--h-pane-header) - var(--h-chatbox-footer-height));
+    height: calc(
+      100vh - 10px - var(--h-pane-header) - var(--h-chatbox-footer-height)
+    );
     overflow-y: auto;
+    padding-top: 10px;
 
     &.loadng {
     }
