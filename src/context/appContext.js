@@ -10,25 +10,7 @@ import {
   BLOCK_CHAT_COMMAND,
   REPORT_CHAT_COMMAND,
 } from "./actions";
-
-const defaultOperations = {
-  chatForMute: null,
-  chatForBlock: null,
-  chatForReport: null,
-};
-
-const initialState = {
-  token: "",
-  user: null,
-  qrCode: "",
-  loading: false,
-  darkTheme: true,
-  chats: [],
-  chat: null,
-  searchPlate: false,
-  infoPlate: false,
-  operations: { ...defaultOperations },
-};
+import { initialState } from "./defaults";
 
 const loadUser = () => {
   initialState.token = localStorage.getItem("token") || "";
@@ -77,24 +59,6 @@ const AppProvider = ({ children }) => {
     });
   };
 
-  const showChatSearch = () => {
-    dispatch({
-      type: CHAT_SEARCH_COMMAND,
-    });
-  };
-
-  const hideChatSearch = () => {
-    dispatch({
-      type: CHAT_SEARCH_HIDE_COMMAND,
-    });
-  };
-
-  const hideExtended = () => {
-    dispatch({
-      type: CHAT_EXTENDED_HIDE_COMMAND,
-    });
-  };
-
   const muteChat = (chat) => {
     dispatch({
       type: MUTE_CHAT_COMMAND,
@@ -116,6 +80,24 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const showChatSearch = () => {
+    dispatch({
+      type: CHAT_SEARCH_COMMAND,
+    });
+  };
+
+  const hideChatSearch = () => {
+    dispatch({
+      type: CHAT_SEARCH_HIDE_COMMAND,
+    });
+  };
+
+  const hideExtended = () => {
+    dispatch({
+      type: CHAT_EXTENDED_HIDE_COMMAND,
+    });
+  };
+
   const resetChatOperations = () => {
     dispatch({
       type: CHAT_RESET_OPERATION_COMMAND,
@@ -133,6 +115,7 @@ const AppProvider = ({ children }) => {
         hideExtended,
         muteChat,
         blockChat,
+        reportChat,
         resetChatOperations,
       }}
     >

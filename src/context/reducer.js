@@ -19,12 +19,7 @@ import {
   BLOCK_CHAT_COMMAND,
   CHAT_RESET_OPERATION_COMMAND,
 } from "./actions";
-
-const defaultOperations = {
-  chatForMute: null,
-  chatForBlock: null,
-  chatForReport: null,
-};
+import { defaultOperations } from "./defaults";
 
 const reducer = (state, action) => {
   switch (action.type) {
