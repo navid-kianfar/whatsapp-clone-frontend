@@ -79,6 +79,12 @@ const Wrapper = styled.div`
         line-height: 20px;
         text-overflow: ellipsis;
         white-space: nowrap;
+        display: flex;
+
+        svg {
+          margin-inline-end: 5px;
+          color: var(--icon-ack);
+        }
       }
     }
     .unread {
