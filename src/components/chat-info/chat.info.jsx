@@ -15,16 +15,16 @@ import Wrapper from "./chat.info.style";
 const ChatInfo = ({ chat }) => {
   return (
     <Wrapper className="chat-info-wrapper">
-      <div className="person">
+      <div className="person colored-bg">
         <Avatar chat={chat} />
         <h3>{chat.title}</h3>
         <h4>{chat.identifier}</h4>
       </div>
-      <div className="about">
+      <div className="about colored-bg">
         <h3>About</h3>
         <h4>{chat.description}</h4>
       </div>
-      <div className="media">
+      <div className="media colored-bg">
         <div className="title">
           <div className="label">Media, links and docs</div>
           <div className="more">
@@ -33,12 +33,12 @@ const ChatInfo = ({ chat }) => {
           </div>
         </div>
       </div>
-      <div className="previews">
+      <div className="previews colored-bg">
         <PreviewThumb />
         <PreviewThumb />
         <PreviewThumb />
       </div>
-      <div className="commands">
+      <div className="commands colored-bg">
         <div className="command">
           <div className="icon">
             <StarIcon />
@@ -76,13 +76,13 @@ const ChatInfo = ({ chat }) => {
           </div>
         </div>
       </div>
-      <div className="common-groups">
+      <div className="common-groups colored-bg">
         <h3>3 groups in common</h3>
         <div className="groups">
           <ChatItem chat={chat} />
         </div>
       </div>
-      <div className="danger commands">
+      <div className="danger commands colored-bg">
         <div className="command">
           <div className="icon">
             <BlockIcon />

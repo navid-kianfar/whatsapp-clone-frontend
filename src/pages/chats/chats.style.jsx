@@ -170,6 +170,7 @@ const Wrapper = styled.div`
     border-left: 1px solid var(--border-stronger);
     width: 30vw;
     max-width: 430px;
+    background-color: var(--drawer-background-deep);
 
     .header {
       display: flex;
