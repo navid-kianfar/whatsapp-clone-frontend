@@ -131,6 +131,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     flex-grow: 1;
     border-left: 1px solid var(--border-stronger);
+    border-right: 1px solid var(--border-stronger);
     cursor: default;
     background-color: var(--intro-background);
     align-items: center;
@@ -167,7 +168,6 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    border-left: 1px solid var(--border-stronger);
     width: 30vw;
     max-width: 430px;
     background-color: var(--drawer-background-deep);

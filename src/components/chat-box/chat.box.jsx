@@ -12,8 +12,10 @@ import MoreIcon from "../icons/more.icon";
 import Avatar from "../avatar/avatar";
 import AnimatedLoader from "../animated-loader/animated.loader";
 import ChatboxMenu from "../menus/chatbox.menu";
+import MessageItem from "../message-item/message.item";
 import { useAppContext } from "../../context/appContext";
 import moment from "moment";
+import { messages } from "./fake.data";
 
 const PlateType = {
   none: 0,
@@ -26,6 +28,7 @@ const initialState = {
   moreMenuAnchor: null,
   loading: false,
   plate: PlateType.none,
+  messages,
 };
 
 const ChatBox = () => {
@@ -92,10 +95,12 @@ const ChatBox = () => {
         release={releaseMoreMenuAnchor}
       />
       <main className={state.loading ? "loading" : ""}>
-        {state.loading && (
+        {state.loading ? (
           <div className="loader-wrapper">
             <AnimatedLoader />
           </div>
+        ) : (
+          state.messages.map((msg) => <MessageItem msg={msg} key={msg.id} />)
         )}
       </main>
       <footer className={state.plate ? "has-plate" : ""}>
