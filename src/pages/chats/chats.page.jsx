@@ -22,6 +22,7 @@ const ChatsPage = () => {
     infoPlate,
     hideExtended,
     operations,
+    resetChatOperations,
   } = useAppContext();
 
   useEffect(() => {
@@ -65,7 +66,9 @@ const ChatsPage = () => {
         )}
       </Wrapper>
 
-      {operations.chatForMute && <MuteChatDialog />}
+      {operations.chatForMute && (
+        <MuteChatDialog handleClose={resetChatOperations} />
+      )}
     </>
   );
 };

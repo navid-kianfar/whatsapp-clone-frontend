@@ -17,7 +17,12 @@ import {
   DELETE_CHAT_COMMAND,
   REPORT_CHAT_COMMAND,
   BLOCK_CHAT_COMMAND,
+  CHAT_RESET_OPERATION_COMMAND,
 } from "./actions";
+
+const defaultOperations = {
+  chatForMute: null,
+};
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -62,9 +67,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         operations: {
-          ...state.operations,
+          ...defaultOperations,
           chatForMute: action.payload,
         },
+      };
+    case CHAT_RESET_OPERATION_COMMAND:
+      return {
+        ...state,
+        operations: { ...defaultOperations },
       };
     default:
       console.log("here");

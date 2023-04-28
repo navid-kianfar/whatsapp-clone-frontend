@@ -6,7 +6,12 @@ import {
   CHAT_SEARCH_COMMAND,
   CHAT_EXTENDED_HIDE_COMMAND,
   MUTE_CHAT_COMMAND,
+  CHAT_RESET_OPERATION_COMMAND,
 } from "./actions";
+
+const defaultOperations = {
+  chatForMute: null,
+};
 
 const initialState = {
   token: "",
@@ -18,9 +23,7 @@ const initialState = {
   chat: null,
   searchPlate: false,
   infoPlate: false,
-  operations: {
-    chatForMute: null,
-  },
+  operations: { ...defaultOperations },
 };
 
 const loadUser = () => {
@@ -95,6 +98,12 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const resetChatOperations = () => {
+    dispatch({
+      type: CHAT_RESET_OPERATION_COMMAND,
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -105,6 +114,7 @@ const AppProvider = ({ children }) => {
         hideChatSearch,
         hideExtended,
         muteChat,
+        resetChatOperations,
       }}
     >
       {children}

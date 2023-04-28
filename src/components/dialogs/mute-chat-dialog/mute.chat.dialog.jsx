@@ -32,6 +32,7 @@ const MuteChatDialog = ({ handleClose }) => {
         <RadioGroup defaultValue={options[0].value}>
           {options.map((opt) => (
             <FormControlLabel
+              key={opt.value}
               value={opt.value}
               control={<Radio />}
               label={opt.label}
@@ -42,7 +43,7 @@ const MuteChatDialog = ({ handleClose }) => {
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
         <Button className="primary" onClick={confirm}>
-          Subscribe
+          Mute
         </Button>
       </DialogActions>
     </Dialog>

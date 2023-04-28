@@ -159,9 +159,17 @@ html[dir="rtl"] #initial_startup .graphic::after {
 }
 .MuiDialogTitle-root {
   color: var(--primary) !important;
+  font-size: 1.25rem !important;
+  font-weight: 400 !important;
 }
 .MuiDialogContentText-root {
   color: var(--secondary) !important;
+  font-size: 0.875rem !important;
+  font-weight: normal !important;
+  padding-bottom: 12px !important;
+}
+.MuiDialog-root .MuiModal-backdrop {
+  background-color: var(--modal-backdrop) !important;
 }
 .MuiButton-root {
   background-color: var(--button-secondary-background) !important;
@@ -169,8 +177,24 @@ html[dir="rtl"] #initial_startup .graphic::after {
   border-radius: 24px !important;
   border: 1px solid var(--button-secondary-border) !important;
   padding: 7px 15px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
 }
 .MuiButton-root.primary {
   color: var(--button-primary) !important;
   background-color: var(--button-primary-background) !important;
+}
+
+/* ---------------------------------------------- */
+/* Dialog */
+/* ---------------------------------------------- */
+.MuiRadio-root {
+  color: var(--switch-button-color) !important;
+}
+.MuiRadio-root.Mui-checked {
+  color: var(--switch-button-checked-color) !important;
+}
+.MuiFormControlLabel-label {
+  color: var(--primary) !important;
+  font-size: 0.87rem !important;
 }
