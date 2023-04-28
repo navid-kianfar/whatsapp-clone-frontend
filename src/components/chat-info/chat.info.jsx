@@ -12,6 +12,7 @@ import EncryptionIcon from "../icons/encryption.icon";
 import StarIcon from "../icons/star.icon";
 import Wrapper from "./chat.info.style";
 import Switch from "@mui/material/Switch";
+import PhoneFormatter from "../phone-formatter/phone.formatter";
 
 const ChatInfo = ({ chat }) => {
   return (
@@ -19,7 +20,9 @@ const ChatInfo = ({ chat }) => {
       <div className="person colored-bg">
         <Avatar chat={chat} />
         <h3>{chat.title}</h3>
-        <h4>{chat.identifier}</h4>
+        <h4>
+          <PhoneFormatter phone={chat.identifier} />
+        </h4>
       </div>
       <div className="about colored-bg">
         <h3>About</h3>
