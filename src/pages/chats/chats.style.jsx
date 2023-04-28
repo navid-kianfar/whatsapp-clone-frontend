@@ -208,7 +208,6 @@ const Wrapper = styled.div`
       }
     }
     .inner {
-      padding: 10px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;

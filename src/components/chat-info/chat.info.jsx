@@ -10,10 +10,11 @@ import BellIcon from "../icons/bell.icon";
 import DisappearingIcon from "../icons/disappearing.icon";
 import EncryptionIcon from "../icons/encryption.icon";
 import StarIcon from "../icons/star.icon";
+import Wrapper from "./chat.info.style";
 
 const ChatInfo = ({ chat }) => {
   return (
-    <div className="chat-info-wrapper">
+    <Wrapper className="chat-info-wrapper">
       <div className="person">
         <Avatar chat={chat} />
         <h3>{chat.title}</h3>
@@ -104,7 +105,7 @@ const ChatInfo = ({ chat }) => {
           <div className="option"></div>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
