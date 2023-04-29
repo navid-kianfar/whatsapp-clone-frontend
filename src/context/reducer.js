@@ -110,6 +110,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         loading: false,
+        chats: action.payload.chats || [],
       };
     default:
       console.log("here");

@@ -14,40 +14,15 @@ import {
 import { initialState } from "./defaults";
 
 const loadUser = () => {
-  initialState.token = localStorage.getItem("token") || "";
-  initialState.user = initialState.token
-    ? JSON.parse(localStorage.getItem("user"))
-    : null;
+  const user = localStorage.getItem("user") || "";
+  initialState.user = user ? JSON.parse(user) : {};
 };
 const loadChats = () => {
-  initialState.chats = Array(50)
-    .fill(0)
-    .map((e, i) => ({
-      avatar: i % 4 === 0 ? null : `https://i.pravatar.cc/150?img=${i + 1}`,
-      identifier: "+905392222222",
-      group: i % 3 === 0,
-      id: (i + 1).toString(),
-      title: "chat with person " + (i + 1),
-      description: "this is a description",
-      date: new Date(2022, 1, 1),
-      unread: i % 5 === 0 ? 3 : 0,
-      lastMessage:
-        i % 4 === 0
-          ? {
-              mode: "text",
-              text: "last message text",
-            }
-          : null,
-    }));
+  initialState.chats = [];
 };
 
 loadUser();
 loadChats();
-
-// TODO: must be removed
-if (!initialState.user) {
-  initialState.user = {};
-}
 
 const AppContext = React.createContext(initialState);
 
@@ -88,9 +63,10 @@ const AppProvider = ({ children }) => {
     });
   };
 
-  const appLoaded = () => {
+  const appLoaded = (loaded) => {
     dispatch({
       type: APP_LOADED,
+      payload: loaded,
     });
   };
 

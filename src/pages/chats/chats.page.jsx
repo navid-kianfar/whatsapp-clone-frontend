@@ -14,6 +14,7 @@ import BlockChatDialog from "../../components/dialogs/block-chat-dialog/block.ch
 import ReportChatDialog from "../../components/dialogs/report-chat-dialog/report.chat.dialog";
 import DeleteChatDialog from "../../components/dialogs/delete-chat-dialog/delete.chat.dialog";
 import ChearChatDialog from "../../components/dialogs/clear-chat-dialog/clear.chat.dialog";
+import { fetchChats } from "../../services/api.service";
 
 const ChatsPage = () => {
   const navigate = useNavigate();
@@ -36,7 +37,9 @@ const ChatsPage = () => {
       return;
     }
 
-    setTimeout(() => appLoaded(), 500);
+    fetchChats().then((res) => {
+      appLoaded({ chats: res.data });
+    });
   }, [user, navigate]);
 
   if (loading) {

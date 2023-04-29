@@ -3,10 +3,11 @@ import qrImage from "../../assets/images/qr.png";
 import AnimatedLoader from "../animated-loader/animated.loader";
 import RefreshIcon from "../icons/refresh.icon";
 import Wrapper from "./qr.style";
+import { fetchQR } from "../../services/api.service";
 
 const initialState = {
   waiting: true,
-  expired: true,
+  expired: false,
   qrCode: "",
 };
 
@@ -14,9 +15,14 @@ const QR = () => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    setTimeout(() => {
-      setState({ ...state, waiting: false });
-    }, 1000);
+    fetchQR().then((res) =>
+      setState({
+        ...state,
+        qrCode: res.data.qr,
+        waiting: false,
+        expired: res.data.qr.length === 0,
+      })
+    );
   }, []);
 
   const refreshQRCode = () => {
