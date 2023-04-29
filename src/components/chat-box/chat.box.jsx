@@ -14,8 +14,8 @@ import AnimatedLoader from "../animated-loader/animated.loader";
 import ChatboxMenu from "../menus/chatbox.menu";
 import MessageItem from "../message-item/message.item";
 import { useAppContext } from "../../context/appContext";
+import { fetchMessages } from "../../services/api.service";
 import moment from "moment";
-import { messages } from "./fake.data";
 
 const PlateType = {
   none: 0,
@@ -28,7 +28,7 @@ const initialState = {
   moreMenuAnchor: null,
   loading: true,
   plate: PlateType.none,
-  messages,
+  messages: [],
 };
 
 const ChatBox = () => {
@@ -59,9 +59,14 @@ const ChatBox = () => {
     if (!state.loading) {
       setState({ ...state, loading: true });
     }
-    setTimeout(() => {
-      setState({ ...state, loading: false });
-    }, 1000);
+
+    fetchMessages(chat.id._serialized).then((res) => {
+      setState({
+        ...state,
+        messages: res.data,
+        loading: false,
+      });
+    });
   }, [chat]);
 
   return (
@@ -73,7 +78,7 @@ const ChatBox = () => {
             <Avatar chat={chat} />
           </div>
           <div className="info">
-            <div className="title">{chat.title}</div>
+            <div className="title">{chat.name}</div>
             <div className="date">{date}</div>
           </div>
         </div>

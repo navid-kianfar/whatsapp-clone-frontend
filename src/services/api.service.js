@@ -12,4 +12,22 @@ const fetchChats = () => {
   return axios.get(url);
 };
 
-export { fetchQR, fetchChats };
+const fetchMessages = (id) => {
+  const url = `${apiPrefix}/chat/${id}/messages`;
+  return axios.post(url, {
+    page: 1,
+    limit: 100,
+    query: "",
+  });
+};
+
+const searchMessages = (id) => {
+  const url = `${apiPrefix}/chat/${id}/search`;
+  return axios.post(url, {
+    page: 1,
+    limit: 100,
+    query: "",
+  });
+};
+
+export { fetchQR, fetchChats, fetchMessages, searchMessages };

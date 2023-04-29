@@ -117,7 +117,7 @@ const ChatSidebar = () => {
           {(state.unreadOnly ? state.filtered : chats).map((chat) => (
             <ChatItem
               current={chat === current}
-              key={chat.id}
+              key={chat.id.user}
               chat={chat}
               onPick={() => pickChat(chat)}
             />

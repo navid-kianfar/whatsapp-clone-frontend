@@ -5,20 +5,20 @@ import Avatar from "../avatar/avatar";
 import TicksIcon from "../icons/ticks.icon";
 
 const ChatItem = ({ chat, current, onPick }) => {
-  const withinWeek = moment().diff(chat.date, "days") < 7;
+  const withinWeek = moment().diff(chat.timestamp, "days") < 7;
   const format = withinWeek ? "dddd" : "DD/MM/YYYY";
-  const date = moment(chat.date).format(format);
+  const date = moment(chat.timestamp).format(format);
   return (
     <Wrapper
       onClick={onPick}
       className={`chat-item-wrapper ${current ? "current" : ""}`}
     >
       <div className="avatar">
-        <Avatar url={chat.avatar} group={chat.group} />
+        <Avatar url={chat.avatar} group={chat.isGroup} />
       </div>
       <div className="inner">
         <div className="info">
-          <div className="title">{chat.title}</div>
+          <div className="title">{chat.name}</div>
           <div className="date">{date}</div>
         </div>
         <div className="more">
