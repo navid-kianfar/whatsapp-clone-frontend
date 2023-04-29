@@ -109,7 +109,7 @@ const ChatBox = () => {
             <AnimatedLoader />
           </div>
         ) : (
-          state.messages.map((msg) => <MessageItem msg={msg} key={msg.id} />)
+          state.messages.map((msg) => <MessageItem msg={msg} key={msg.id.id} />)
         )}
       </main>
       <footer className={state.plate ? "has-plate" : ""}>
