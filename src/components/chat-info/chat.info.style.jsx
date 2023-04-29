@@ -28,6 +28,12 @@ const Wrapper = styled.div`
       font-size: 1rem;
       font-weight: normal;
     }
+
+    img {
+      margin-top: 20px;
+      width: 250px;
+      height: 250px;
+    }
   }
 
   .about {
