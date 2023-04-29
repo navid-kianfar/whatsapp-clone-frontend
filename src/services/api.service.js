@@ -30,4 +30,9 @@ const searchMessages = (id) => {
   });
 };
 
-export { fetchQR, fetchChats, fetchMessages, searchMessages };
+const fetchAvatarUrl = () => {
+  const url = `${apiPrefix}/avatar`;
+  return axios.get(url);
+};
+
+export { fetchQR, fetchChats, fetchMessages, searchMessages, fetchAvatarUrl };

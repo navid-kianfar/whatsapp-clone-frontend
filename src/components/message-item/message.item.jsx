@@ -5,8 +5,7 @@ import moment from "moment";
 
 const MessageItem = ({ msg, chat }) => {
   const classes = ["message-conatainer", msg.fromMe ? "me" : ""];
-
-  const time = moment(msg.timestamp).format("HH:mm");
+  const time = moment(msg.timestamp * 1000).format("HH:mm");
   return (
     <Wrapper>
       <div className={classes.join(" ")}>
