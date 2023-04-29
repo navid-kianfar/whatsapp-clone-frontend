@@ -17,7 +17,7 @@ const ChatItem = ({ chat, current, onPick }) => {
 
   useEffect(() => {
     fetchAvatarUrl(chat.id._serialized).then((res) => {
-      setAvatar(res.body.avatar);
+      setAvatar(res.data.avatar);
     });
   }, [chat]);
 

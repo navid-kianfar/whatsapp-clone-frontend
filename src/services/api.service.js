@@ -30,8 +30,8 @@ const searchMessages = (id) => {
   });
 };
 
-const fetchAvatarUrl = () => {
-  const url = `${apiPrefix}/avatar`;
+const fetchAvatarUrl = (id) => {
+  const url = `${apiPrefix}/avatar/${id}`;
   return axios.get(url);
 };
 
