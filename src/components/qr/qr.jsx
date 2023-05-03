@@ -48,11 +48,13 @@ const QR = () => {
     socket.on('qr', onQREvent);
     socket.on('ready', redirectSuccess);
     socket.on('authenticated', redirectSuccess);
+    socket.on('loading', redirectSuccess);
 
     return () => {
       socket.off('qr', onQREvent);
       socket.off('ready', redirectSuccess);
       socket.off('authenticated', redirectSuccess);
+      socket.off('loading', redirectSuccess);
     };
   }, []);
 

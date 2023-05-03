@@ -24,10 +24,7 @@ const AppContext = React.createContext(initialState);
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-
   const authenticate = () => {
-    localStorage.setItem("user", "{loggedIn: true}");
     dispatch({
       type: APP_AUTHENTICATE
     });

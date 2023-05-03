@@ -9,18 +9,28 @@ import { useAppContext } from "./context/appContext";
 
 
 const App = () => {
-
   const {authenticate, loadingProgress, ready} = useAppContext();
-
+  const loginUser = () => {
+    localStorage.setItem("user", '{"loggedIn": true}');
+  };
   const onConnect = (payload) => {
     console.log('onConnect', payload);
   };
   const onDisconnect = (payload) => {
     console.log('onDisconnect', payload);
   };
-  const onReady = (payload) => ready(payload);
-  const onAuthenticated = (payload) => authenticate(payload);
-  const onLoading = (payload) => loadingProgress(payload);
+  const onReady = (payload) => {
+    loginUser();
+    ready(payload);
+  };
+  const onAuthenticated = (payload) => {
+    loginUser();
+    authenticate(payload);
+  }
+  const onLoading = (payload) => {
+    loginUser();
+    loadingProgress(payload);
+  }
 
   useEffect(() => {
     socket.on('connect', onConnect);
