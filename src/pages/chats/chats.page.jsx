@@ -20,6 +20,7 @@ const ChatsPage = () => {
   const navigate = useNavigate();
   const {
     loading,
+    loadingPercent,
     user,
     chat,
     darkTheme,
@@ -28,7 +29,7 @@ const ChatsPage = () => {
     hideExtended,
     operations,
     resetChatOperations,
-    appLoaded,
+    chatsLoaded,
   } = useAppContext();
 
   useEffect(() => {
@@ -38,12 +39,12 @@ const ChatsPage = () => {
     }
 
     fetchChats().then((res) => {
-      appLoaded({ chats: res.data });
+      chatsLoaded({ chats: res.data });
     });
   }, [user, navigate]);
 
   if (loading) {
-    return <Loading />;
+    return <Loading percent={loadingPercent} />;
   }
   return (
     <>

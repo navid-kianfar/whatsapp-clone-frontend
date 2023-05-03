@@ -9,7 +9,7 @@ import {
   CHAT_RESET_OPERATION_COMMAND,
   BLOCK_CHAT_COMMAND,
   REPORT_CHAT_COMMAND,
-  APP_LOADED,
+  APP_LOADED as CHATS_LOADED,
   APP_AUTHENTICATE,
   APP_LOADING_PROGRESS,
   APP_READY
@@ -27,6 +27,7 @@ const AppProvider = ({ children }) => {
 
 
   const authenticate = () => {
+    localStorage.setItem("user", "{loggedIn: true}");
     dispatch({
       type: APP_AUTHENTICATE
     });
@@ -77,10 +78,10 @@ const AppProvider = ({ children }) => {
     });
   };
 
-  const appLoaded = (loaded) => {
+  const chatsLoaded = (payload) => {
     dispatch({
-      type: APP_LOADED,
-      payload: loaded,
+      type: CHATS_LOADED,
+      payload,
     });
   };
 
@@ -107,7 +108,7 @@ const AppProvider = ({ children }) => {
       value={{
         ...state,
         dispatch,
-        appLoaded,
+        chatsLoaded,
         openChat,
         showChatSearch,
         hideChatSearch,

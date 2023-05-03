@@ -31,7 +31,8 @@ const reducer = (state, action) => {
     case APP_AUTHENTICATE:
       return {
         ...state,
-        authenticated: true
+        authenticated: true,
+        user: {}
       };
     case APP_LOADING_PROGRESS:
       return {
@@ -41,7 +42,8 @@ const reducer = (state, action) => {
     case APP_READY:
       return {
         ...state,
-        loading: false
+        loading: false,
+        user: {}
       };
     case QR_CODE_REQUEST_GENERATED:
       return {

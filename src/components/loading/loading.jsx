@@ -1,7 +1,7 @@
 import Wrapper from "./loading.style";
 import LogoGray from "../logos/logo.gray";
 
-const Loading = () => {
+const Loading = ({ percent }) => {
   return (
     <Wrapper>
       <div className="initial_startup">
@@ -11,7 +11,7 @@ const Loading = () => {
           </span>
         </div>
         <div className="progress">
-          <progress value="50" max="100" dir="ltr"></progress>
+          <progress value={percent} max="100" dir="ltr"></progress>
         </div>
         <div className="main">WhatsApp</div>
         <div className="secondary">
