@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiPrefix = "http://localhost:3100";
+const apiPrefix = "http://localhost:3100/api";
 
 const fetchQR = () => {
   const url = `${apiPrefix}/qr`;

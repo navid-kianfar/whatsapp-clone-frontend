@@ -15,7 +15,7 @@ import { initialState } from "./defaults";
 
 const loadUser = () => {
   const user = localStorage.getItem("user") || "";
-  initialState.user = user ? JSON.parse(user) : {};
+  initialState.user = user ? JSON.parse(user) : null;
 };
 const loadChats = () => {
   initialState.chats = [];
