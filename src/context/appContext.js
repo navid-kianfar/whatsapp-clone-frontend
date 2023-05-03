@@ -10,24 +10,38 @@ import {
   BLOCK_CHAT_COMMAND,
   REPORT_CHAT_COMMAND,
   APP_LOADED,
+  APP_AUTHENTICATE,
+  APP_LOADING_PROGRESS,
+  APP_READY
 } from "./actions";
 import { initialState } from "./defaults";
 
-const loadUser = () => {
-  const user = localStorage.getItem("user") || "";
-  initialState.user = user ? JSON.parse(user) : null;
-};
-const loadChats = () => {
-  initialState.chats = [];
-};
 
-loadUser();
-loadChats();
+const user = localStorage.getItem("user") || "";
+initialState.user = user ? JSON.parse(user) : null;
 
 const AppContext = React.createContext(initialState);
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+
+  const authenticate = () => {
+    dispatch({
+      type: APP_AUTHENTICATE
+    });
+  };
+  const loadingProgress = (payload) => {
+    dispatch({
+      type: APP_LOADING_PROGRESS,
+      payload,
+    });
+  };
+  const ready = () => {
+    dispatch({
+      type: APP_READY
+    });
+  };
 
   const openChat = (chat) => {
     dispatch({
@@ -102,6 +116,9 @@ const AppProvider = ({ children }) => {
         blockChat,
         reportChat,
         resetChatOperations,
+        authenticate,
+        loadingProgress,
+        ready
       }}
     >
       {children}

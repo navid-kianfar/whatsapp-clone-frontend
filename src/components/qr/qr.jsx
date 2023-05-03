@@ -5,15 +5,18 @@ import RefreshIcon from "../icons/refresh.icon";
 import Wrapper from "./qr.style";
 import { fetchQR } from "../../services/api.service";
 import { socket } from "../../services/socket.service";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   waiting: true,
   expired: false,
   qrCode: "",
+  redirecting: false,
 };
 
 const QR = () => {
   const [state, setState] = useState(initialState);
+  const navigate = useNavigate();
 
   const updateQRImage = (base64) => {
     setState({
@@ -32,12 +35,24 @@ const QR = () => {
     fetchQR().then((res) => updateQRImage(res.data.qr));
   };
 
+  const redirectSuccess = () => {
+    if (state.redirecting) { return; }
+    setState({...state, redirecting: true});
+    setTimeout(() => {
+      navigate('/');
+    }, 200);
+  };
+
   useEffect(() => {
     retrive();
     socket.on('qr', onQREvent);
+    socket.on('ready', redirectSuccess);
+    socket.on('authenticated', redirectSuccess);
 
     return () => {
       socket.off('qr', onQREvent);
+      socket.off('ready', redirectSuccess);
+      socket.off('authenticated', redirectSuccess);
     };
   }, []);
 

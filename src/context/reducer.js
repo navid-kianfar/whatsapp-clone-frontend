@@ -19,11 +19,30 @@ import {
   BLOCK_CHAT_COMMAND,
   CHAT_RESET_OPERATION_COMMAND,
   APP_LOADED,
+
+  APP_AUTHENTICATE,
+  APP_LOADING_PROGRESS,
+  APP_READY
 } from "./actions";
 import { defaultOperations } from "./defaults";
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case APP_AUTHENTICATE:
+      return {
+        ...state,
+        authenticated: true
+      };
+    case APP_LOADING_PROGRESS:
+      return {
+        ...state,
+        loadingPercent: action.payload.percent
+      };
+    case APP_READY:
+      return {
+        ...state,
+        loading: false
+      };
     case QR_CODE_REQUEST_GENERATED:
       return {
         ...state,

@@ -17,6 +17,8 @@ const initialState = {
   searchPlate: false,
   infoPlate: false,
   operations: { ...defaultOperations },
+  authenticated: false,
+  loadingPercent: 0,
 };
 
 export { defaultOperations, initialState };
