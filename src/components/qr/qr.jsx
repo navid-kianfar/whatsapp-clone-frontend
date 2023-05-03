@@ -4,6 +4,7 @@ import AnimatedLoader from "../animated-loader/animated.loader";
 import RefreshIcon from "../icons/refresh.icon";
 import Wrapper from "./qr.style";
 import { fetchQR } from "../../services/api.service";
+import { socket } from "../../services/socket.service";
 
 const initialState = {
   waiting: true,
@@ -14,22 +15,35 @@ const initialState = {
 const QR = () => {
   const [state, setState] = useState(initialState);
 
+  const updateQRImage = (base64) => {
+    setState({
+      ...state,
+      qrCode: base64,
+      waiting: false,
+      expired: base64.length === 0,
+    })
+  };
+
+  const onQREvent = (payload) => {
+    updateQRImage(payload.qr);
+  };
+
+  const retrive = () => {
+    fetchQR().then((res) => updateQRImage(res.data.qr));
+  };
+
   useEffect(() => {
-    fetchQR().then((res) =>
-      setState({
-        ...state,
-        qrCode: res.data.qr,
-        waiting: false,
-        expired: res.data.qr.length === 0,
-      })
-    );
+    retrive();
+    socket.on('qr', onQREvent);
+
+    return () => {
+      socket.off('qr', onQREvent);
+    };
   }, []);
 
   const refreshQRCode = () => {
     setState({ ...state, waiting: true });
-    setTimeout(() => {
-      setState({ ...state, waiting: false, expired: false });
-    }, 1000);
+    retrive();
   };
 
   if (state.waiting) {
